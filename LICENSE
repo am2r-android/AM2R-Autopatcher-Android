@@ -24,5 +24,5 @@ SOFTWARE.
 
 This license covers the patcher tooling in this repository only. It does NOT
 cover AM2R or any of its assets, which belong to their original creators and
-are not distributed here. xdelta3 (in vendor/) is licensed separately under
-the Apache License 2.0; see vendor/xdelta3/LICENSE.
+are not distributed here. xdelta3 is licensed separately under the Apache
+License 2.0; see app-android/app/src/main/jni/xdelta3/LICENSE.

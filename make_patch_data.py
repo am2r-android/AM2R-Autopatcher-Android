@@ -168,8 +168,9 @@ def main(apk_path, ref_path, out_dir):
             segments.append({"source": "wrapper", "offset": w_off,
                              "length": len(chunk), "sha256": sha256_bytes(chunk)})
 
+    version = apk_path.name.split("-")[1] if "-" in apk_path.name else "unknown"
     manifest = {
-        "version": "1.5.5.4",
+        "version": version,
         "apk_name": apk_path.name,
         "final_sha256": apk_sha,
         "final_size": apk_size,
