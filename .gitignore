@@ -1,0 +1,13 @@
+# Generated patch data (release artifacts, not source)
+/patch-data/
+
+# Android build output & local config
+app-android/app/build/
+app-android/build/
+app-android/.gradle/
+app-android/local.properties
+app-android/app/.cxx/
+
+# Python
+__pycache__/
+*.pyc
