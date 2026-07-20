@@ -1,7 +1,7 @@
 # AM2R for Android — Autopatcher
 
 Turns **your own copy** of the original AM2R 1.1 release (`AM2R_11.zip`) into the
-Android port APK, entirely on your computer. Nothing playable is distributed here:
+Android port APK, entirely on your device. Nothing playable is distributed here:
 the game data is rebuilt from your files, and the result is verified byte-for-byte
 against the official release checksum before it's written.
 
