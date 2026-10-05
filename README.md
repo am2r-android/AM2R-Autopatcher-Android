@@ -9,9 +9,10 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.9 — testing build.** This package is prepared for private evaluation.
-Physical handheld compatibility and performance are still awaiting verification.
-See [TESTING.txt](TESTING.txt) for the checks and feedback requested.
+**1.5.5.9 — Preview 1.** This prerelease is intended for testing. Physical handheld
+compatibility and performance are still awaiting verification. Please include
+the device model, Android version, selected profile and steps to reproduce any
+issue. Photos or a short video of both displays are useful.
 
 ## What you need
 
@@ -28,7 +29,9 @@ See [TESTING.txt](TESTING.txt) for the checks and feedback requested.
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Install **AM2R-Autopatcher-1.5.5.9.apk** from this package. Allow installation
+2. Download **AM2R-Autopatcher-1.5.5.9.apk** from the
+   [release page](https://github.com/am2r-android/AM2R-Autopatcher-Android/releases)
+   and install it. Allow installation
    from your browser or file manager when Android asks.
 3. Open **AM2R Patcher** and choose **Standard** for one screen, or **Dual Screen**
    for a handheld with one of the included profiles.
@@ -43,7 +46,7 @@ See [TESTING.txt](TESTING.txt) for the checks and feedback requested.
 before testing. Uninstalling the game deletes its app-private saves. Standard and
 Dual Screen install as separate applications and have separate save storage.
 
-This package contains the Android autopatcher and source archives. A standalone
+This package contains the Android autopatcher and its source archive. A standalone
 Windows patcher executable and ready-to-run desktop patch bundle are not included.
 
 ## Standard and Dual Screen
@@ -67,9 +70,13 @@ progress between Standard, Dual Screen and **PC Community Updates 1.5.5**.
 Choose the incoming save and destination slot before confirming a restore.
 Settings and controller bindings stay specific to each installation.
 
-See [SAVE-TRANSFERS.txt](SAVE-TRANSFERS.txt) for folder locations and full transfer
-instructions. The original 1.1 ZIP is the patching input; compatibility with 1.1
-or modded save files is not implied.
+For Android to PC, copy the files inside the timestamped backup folder into the
+PC save directory while the game is closed. Preserve a copy of existing PC saves.
+Windows uses `%LOCALAPPDATA%\AM2R`; the tested Linux build uses `~/.config/AM2R`.
+For PC to Android, select a folder containing the PC saves in Restore, then choose
+the incoming and destination slots. Records and unlocks are a separate choice.
+The original 1.1 ZIP is the patching input; compatibility with 1.1 or modded save
+files is not implied.
 
 ## How it works
 
@@ -87,28 +94,29 @@ signed build. A complete playable game APK is not included in this package.
 
 ## Checksums and source
 
-[SHA256SUMS](SHA256SUMS) covers the autopatcher, source archives and accompanying
-documents. From this folder on Linux, run:
+The release has three attachments:
+
+- `AM2R-Autopatcher-1.5.5.9.apk`
+- `AM2R-Autopatcher-1.5.5.9-source.zip`
+- `SHA256SUMS`
+
+Download them into the same folder. On Linux, run:
 
 ```sh
 sha256sum -c SHA256SUMS
 ```
 
-[BUILD-INFO.json](BUILD-INFO.json) records the expected SHA-256 values for both
-generated game APKs. Both editions have been reconstructed byte-for-byte from the
-patch data inside this autopatcher. The package has also passed the anonymity
-check under the documented technical exceptions.
+Both game editions have been reconstructed byte-for-byte from the patch data
+inside this autopatcher. The attachments have passed the anonymity check under
+the documented technical exceptions.
 
-The [source folder](source/) contains separate archives for the autopatcher,
-Standard and Dual Screen. They include editable code, project definitions and
-license notices. Image, audio and font payloads, game datafiles, compiled binaries,
-generated patch payloads and signing material are excluded from those archives.
-Matching private asset inputs are needed to build them; rebuilding the source
-projects from only a Windows 1.1 ZIP is not yet verified.
+The source ZIP contains the autopatcher's Android Java/C implementation, Python
+patching tools, build definitions, tests and license notices. Media, compiled
+binaries, generated patch payloads and signing material are excluded from that
+source archive. Its README and asset manifest explain the additional private
+inputs needed to build it. The Standard and Dual Screen game-source snapshots
+are not included in this preview.
 
-See [SOURCE-NOTES.txt](SOURCE-NOTES.txt) and the notices inside each archive for
-licensing and build limits. Source exclusions do not grant redistribution rights
-to the interface media or patch content included in the autopatcher APK.
 
 ## Credits & licenses
 
@@ -122,5 +130,5 @@ to the interface media or patch content included in the autopatcher APK.
   under its included MIT license.
 - xdelta3 by Josh MacDonald retains its Apache 2.0 license. Its notice is included
   in the autopatcher source at `app-android/app/src/main/jni/xdelta3/LICENSE`.
-- Autopatcher code retains its MIT notice. Inherited game code retains the
-  AM2R Community Updates license included with each game source archive.
+- Autopatcher code retains its MIT notice. This does not relicense inherited
+  game content or third-party components.
