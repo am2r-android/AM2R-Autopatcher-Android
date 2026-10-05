@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "edition": "launcher",
+  "files": [
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/bg_samus.png",
+      "size": 707004,
+      "sha256": "589e02b671366dc17b36a0f3f04ee2112d90dfccb3463c258b704022bbff33d2"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/ending_samus.png",
+      "size": 17368,
+      "sha256": "95b4b5da1cf086601175097567238b3dee8effea931fd7515a5a05f3cb43bef7"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/ending_stars.png",
+      "size": 86424,
+      "sha256": "09cdab345296f842f1da20278b969859b896fa0aa9b1c847f7857d6082478635"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/ic_launcher_fg.png",
+      "size": 5803,
+      "sha256": "b7638a6dc7325f7415d5eaf7b70d38bb6f8b660f57bf7d37612868311801fd8d"
+    },
+    {
+      "path": "app-android/app/src/main/res/font/am2r_menu.ttf",
+      "size": 947036,
+      "sha256": "b3c5a8217ca13e615067796d50a17410e40529e5cd551d18e1ed30ae6763c4f0"
+    },
+    {
+      "path": "app-android/app/src/main/res/font/am2r_small.ttf",
+      "size": 1296552,
+      "sha256": "abe5d3d934885a3338c3dde9097f24f8a8eab86e3b5fc55ec2d4a6d96e9798cb"
+    },
+    {
+      "path": "patch-bundle/dual/assembly.json",
+      "size": 785,
+      "sha256": "443c42f4591c425758a9da6689d97a3a8433be9385ca5786fc9f5074698a04ce"
+    },
+    {
+      "path": "patch-bundle/dual/droid.xdelta",
+      "size": 27421624,
+      "sha256": "153808ed8df2a6e960b42b8e8d4b7053de10c814f16ad5b9c35d4dd1f1e56325"
+    },
+    {
+      "path": "patch-bundle/dual/wrapper.bin",
+      "size": 262000194,
+      "sha256": "4a10aa836ee2d5b93b17e15e65e8c332199860ee894ffec7e043771a6ea9ff9c"
+    },
+    {
+      "path": "patch-bundle/standard/assembly.json",
+      "size": 782,
+      "sha256": "046cb78d134e34ac31932f5591dbc88cecadf41d596b2da2aee32da4e5b50bae"
+    },
+    {
+      "path": "patch-bundle/standard/droid.xdelta",
+      "size": 26759536,
+      "sha256": "ad3352363608d8766ff6aac1915993073314adbda0f253d615710845d5f3df53"
+    },
+    {
+      "path": "patch-bundle/standard/wrapper.bin",
+      "size": 261984834,
+      "sha256": "661b58ee231f06ed9c48c0e8e3bc1d1fdb9936ca81b33c8a93ef8dab50a3d2fa"
+    },
+    {
+      "path": "vendor/xdelta3/windows-x64/xdelta3.exe",
+      "size": 548804,
+      "sha256": "9bf8d067de9448e521afe1f8108caa0f85b4b7c7933641efd44bc43533920565"
+    }
+  ],
+  "donorArchiveRoot": "AM2R-Autopatcher"
+}
