@@ -164,7 +164,7 @@
    4. LIGHT WEIGHT
 
    The code makes efforts to avoid copying data more than necessary.
-   The code delays many initialization tasks until the first use, it
+   The code delays many initialization operations until the first use, it
    optimizes for identical (perfectly matching) inputs.  It does not
    compute any checksums until the first lookup misses.  Memory usage
    is reduced.  String-matching is templatized (by slightly gross use
