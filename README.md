@@ -9,10 +9,11 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.9 — Preview 1.** This prerelease is intended for testing. Physical handheld
-compatibility and performance are still awaiting verification. Please include
-the device model, Android version, selected profile and steps to reproduce any
-issue. Photos or a short video of both displays are useful.
+**1.5.5.9.** AYN Thor has been tested on physical hardware and confirmed working.
+The RG DS, Retroid Pocket Duo / Duo Lite and AYANEO Pocket DS profiles are
+included, but physical compatibility remains unconfirmed. When reporting an
+issue, include the device, Android version, profile and steps to reproduce it.
+Photos or a short video of both displays are useful.
 
 ## What you need
 
@@ -22,8 +23,8 @@ issue. Photos or a short video of both displays are useful.
 - An **ARM64 Android device running Android 10 or newer** for the autopatcher.
 - For Dual Screen, an Android handheld with two displays and built-in controls.
   Included profiles are **AYN Thor**, **RG DS**, **Retroid Pocket Duo / Duo Lite**
-  and **AYANEO DS**. These profiles are available for testing; physical-device
-  support is not yet confirmed. RG DS Plus is not included.
+  and **AYANEO Pocket DS**. AYN Thor is physically tested; the other profiles
+  await physical validation. RG DS Plus is not included.
 
 ## How to use
 
@@ -43,19 +44,21 @@ issue. Photos or a short video of both displays are useful.
    on first boot; the same choice remains available in **Display Options**.
 
 **Updates install over the existing edition — saves are kept.** Back up your saves
-before testing. Uninstalling the game deletes its app-private saves. Standard and
+before updating. Uninstalling the game deletes its app-private saves. Standard and
 Dual Screen install as separate applications and have separate save storage.
 
-This package contains the Android autopatcher and its source archive. A standalone
+This package contains the Android autopatcher and separate code-only source
+archives for the autopatcher and both game editions. A standalone
 Windows patcher executable and ready-to-run desktop patch bundle are not included.
 
 ## Standard and Dual Screen
 
 - **Standard** keeps gameplay and menus on one screen, with touch and controller
   support. Display scaling is automatic.
-- **Dual Screen** puts gameplay above and a live map, health and ammunition below.
-  Touch can pan and zoom the map while gameplay continues. Follow preserves the
-  selected zoom and tracks the player's map cell. Pausing freezes and dims the
+- **Dual Screen** puts gameplay above and a live map, health and items below.
+  Touch can pan and zoom the map while gameplay continues. Fit Map frames the
+  revealed map; Follow returns to the last manual zoom and tracks the player's
+  map cell. Pausing freezes and dims the
   upper screen while the lower map, inventory, logs and settings remain usable.
 
 The gameplay aspect-ratio setting affects only the upper screen. RG DS locks that
@@ -94,10 +97,12 @@ signed build. A complete playable game APK is not included in this package.
 
 ## Checksums and source
 
-The release has three attachments:
+The release has five attachments:
 
 - `AM2R-Autopatcher-1.5.5.9.apk`
 - `AM2R-Autopatcher-1.5.5.9-source.zip`
+- `AM2R-1.5.5.9-standard-source.zip`
+- `AM2R-1.5.5.9-dual-source.zip`
 - `SHA256SUMS`
 
 Download them into the same folder. On Linux, run:
@@ -107,16 +112,21 @@ sha256sum -c SHA256SUMS
 ```
 
 Both game editions have been reconstructed byte-for-byte from the patch data
-inside this autopatcher. The attachments have passed the anonymity check under
-the documented technical exceptions.
+inside this autopatcher. The checksums cover the APK and all three source archives.
 
-The source ZIP contains the autopatcher's Android Java/C implementation, Python
-patching tools, build definitions, tests and license notices. Media, compiled
-binaries, generated patch payloads and signing material are excluded from that
-source archive. Its README and asset manifest explain the additional private
-inputs needed to build it. The Standard and Dual Screen game-source snapshots
-are not included in this preview.
+The autopatcher source contains its Android Java/C implementation, Python tools,
+build definitions, tests and license notices. The two game sources contain GML,
+Android extensions, shader code and GameMaker project/resource definitions.
+Their media exclusions follow the
+[Community Updates source publication](https://github.com/AM2R-Community-Developers/AM2R-Community-Updates).
 
+Images, audio, font payloads, datafiles, compiled binaries, generated patch payloads,
+signing material and revision history are excluded from these source archives.
+Each README and asset manifest explains the additional local inputs needed to
+build. GameMaker Beta IDE 2026.100.0.1083 and runtime 2026.100.0.1046 are pinned.
+The older upstream GMX asset-import instructions are not a verified importer for
+this converted YYP project. A rebuild from only the original 1.1 ZIP remains
+unverified. Code retains its included license conditions and required attribution.
 
 ## Credits & licenses
 
