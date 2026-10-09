@@ -39,6 +39,7 @@ def base_dir():
 
 
 def find_xdelta3():
+    # Prefer the bundled decoder for this platform, then fall back to a decoder on the executable path.
     exe = "xdelta3.exe" if os.name == "nt" else "xdelta3"
     plat = {"Windows": "windows-x64", "Linux": "linux-x64", "Darwin": "macos"}.get(platform.system())
     if plat:
@@ -85,6 +86,7 @@ def locate_datawin(source, expected_sha, progress):
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".data.win")
     tmp_path = Path(tmp.name)
     try:
+        # Search extracted copies for matching game data before copying a verified candidate into temporary storage.
         if source.is_dir():
             for cand in sorted(source.rglob("*")):
                 if cand.is_file() and cand.name.lower() == "data.win":
@@ -103,6 +105,7 @@ def locate_datawin(source, expected_sha, progress):
                 raise PatchError(
                     "That zip has no data.win inside.\n"
                     "You need the original AM2R 1.1 release (AM2R_11.zip).")
+            # Hash each ZIP candidate before retaining its bytes as the delta source.
             for name in names:
                 h = hashlib.sha256()
                 with z.open(name) as f:
@@ -120,6 +123,7 @@ def locate_datawin(source, expected_sha, progress):
             "The data.win inside that zip is not AM2R 1.1.\n"
             "This patcher needs the original, unmodified 1.1 release —\n"
             "a modded or Community-Updates copy will not work.")
+    # Remove the temporary source if no acceptable copy could be returned to the patch operation.
     except Exception:
         tmp.close()
         tmp_path.unlink(missing_ok=True)
@@ -133,6 +137,7 @@ def read_zip_member(source, member):
         if not p.is_file():
             raise PatchError(f"missing file in your 1.1 copy: {member}")
         return p.read_bytes()
+    # Allow an original ZIP to wrap its member paths in a containing directory.
     with zipfile.ZipFile(source) as z:
         for n in z.namelist():
             if n == member or n.endswith("/" + member):
@@ -142,6 +147,7 @@ def read_zip_member(source, member):
 
 def patch(source_zip, out_dir, progress, edition="standard", patch_root=None):
     """Build the APK. Returns (apk_path, sha256)."""
+    # Keep the selected edition's manifest, wrapper, and delta together for the entire operation.
     manifest, data_dir = load_manifest(edition, patch_root)
     xdelta = find_xdelta3()
     wrapper = data_dir / "wrapper.bin"
@@ -153,6 +159,7 @@ def patch(source_zip, out_dir, progress, edition="standard", patch_root=None):
         droid_tmp = Path(temporary_droid.name)
     try:
         progress(0, 1, "Rebuilding game data from your copy…")
+        # Rebuild game data in temporary storage and check its hash before assembling the APK.
         r = subprocess.run(
             [xdelta, "-d", "-f", "-s", str(datawin), str(data_dir / manifest["droid"]["xdelta"]), str(droid_tmp)],
             capture_output=True, text=True)
@@ -171,6 +178,7 @@ def patch(source_zip, out_dir, progress, edition="standard", patch_root=None):
         done = 0
         final = hashlib.sha256()
 
+        # Assemble beside the destination under a temporary name until the full output passes verification.
         temporary = tempfile.NamedTemporaryFile(prefix=".patch-", suffix=".tmp", dir=out_dir, delete=False)
         pending = Path(temporary.name)
         try:
@@ -180,15 +188,18 @@ def patch(source_zip, out_dir, progress, edition="standard", patch_root=None):
             done = pending.stat().st_size
             if done != total or digest != manifest["final_sha256"]:
                 raise PatchError("Final APK failed verification — patching aborted, nothing was kept.")
+            # Keep an existing matching APK, but refuse to replace a different file with the same output name.
             if apk_path.exists():
                 if sha256_file(apk_path) != digest:
                     raise PatchError("A different file already uses the output name. Choose another output folder.")
             else:
                 os.replace(pending, apk_path)
+        # Remove the temporary APK after either a successful move or a failed verification.
         finally:
             pending.unlink(missing_ok=True)
         progress(total, total, "Done")
         return apk_path, digest
+    # Release the verified source copy and rebuilt game data when this operation ends.
     finally:
         datawin.unlink(missing_ok=True)
         droid_tmp.unlink(missing_ok=True)
@@ -197,6 +208,7 @@ def patch(source_zip, out_dir, progress, edition="standard", patch_root=None):
 def assemble(manifest, source_zip, out, w, d, final, progress):
     total = manifest["final_size"]
     done = 0
+    # Reconstruct the original APK byte order from wrapper ranges, rebuilt game data, and source ZIP members.
     for seg in manifest["segments"]:
         if seg["source"] == "wrapper":
             w.seek(seg["offset"])
@@ -212,6 +224,7 @@ def assemble(manifest, source_zip, out, w, d, final, progress):
                 remaining -= len(chunk)
                 done += len(chunk)
                 progress(done, total, "Assembling APK…")
+            # Check each wrapper range as well as the complete APK hash checked by the caller.
             if seg_h.hexdigest() != seg["sha256"]:
                 raise PatchError("wrapper.bin failed verification (corrupt download?)")
         elif seg["source"] == "droid":
@@ -224,6 +237,7 @@ def assemble(manifest, source_zip, out, w, d, final, progress):
                 out.write(chunk)
                 done += len(chunk)
                 progress(done, total, "Assembling APK…")
+        # Verify each original member before adding it to the temporary output.
         elif seg["source"] == "zip":
             chunk = read_zip_member(source_zip, seg["path"])
             if hashlib.sha256(chunk).hexdigest() != seg["sha256"]:
@@ -242,6 +256,7 @@ def assemble(manifest, source_zip, out, w, d, final, progress):
 def run_cli(args):
     last = [-1]
 
+    # Refresh terminal progress only when its displayed percentage changes.
     def progress(done, total, msg):
         pct = 100 * done // total if total > 1 else 0
         if pct == last[0]:
@@ -294,10 +309,12 @@ def run_gui():
     button = ttk.Button(frame, text="Choose AM2R_11.zip…")
     button.pack(pady=8)
 
+    # Queue progress widget changes on the GUI thread while the worker continues patching.
     def progress(done, total, msg):
         root.after(0, lambda: (bar.configure(value=1000 * done / max(total, 1)),
                                status.set(msg)))
 
+    # Return failures and verified results to the GUI through callbacks that also unlock the controls.
     def work(path, selected):
         try:
             apk, digest = patch(path, Path(path).resolve().parent, progress, edition=selected)
@@ -323,6 +340,7 @@ def run_gui():
         if not path:
             return
         button.configure(state="disabled")
+        # Capture the edition before starting the worker so later UI state cannot redirect this operation.
         selected = ("standard", "dual")[edition.current()]
         edition.configure(state="disabled")
         threading.Thread(target=work, args=(path, selected), daemon=True).start()
@@ -343,6 +361,7 @@ def main():
     ap.add_argument("--no-gui", action="store_true", help="force CLI mode")
     args = ap.parse_args()
 
+    # An input path selects the command-line flow; otherwise launch the GUI unless it was explicitly disabled.
     if args.zip:
         return run_cli(args)
     if args.no_gui:

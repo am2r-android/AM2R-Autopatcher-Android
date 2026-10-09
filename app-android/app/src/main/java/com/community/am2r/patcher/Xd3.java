@@ -1,6 +1,7 @@
 package com.community.am2r.patcher;
 
 final class Xd3 {
+    // Load the native decoder before PatchJob calls the Java-to-native entry point.
     static {
         System.loadLibrary("xd3jni");
     }

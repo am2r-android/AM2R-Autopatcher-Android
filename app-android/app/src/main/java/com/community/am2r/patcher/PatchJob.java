@@ -34,16 +34,20 @@ final class PatchJob extends ContextWrapper implements Runnable {
         if (!edition.equals("standard") && !edition.equals("dual")) throw new IllegalArgumentException("Unknown edition");
         this.edition = edition; this.source = source;
     }
+    // A replacement activity can observe the same operation without keeping the old activity alive.
     void attach(Listener target) { listener = new WeakReference<>(target); notifyListener(); }
     void detach(Listener target) { if (listener.get() == target) listener.clear(); }
+    // Run patching in a background thread and post progress notifications to the main thread.
     void start() { new Thread(this, "patch-game").start(); }
     private void notifyListener() { main.post(() -> { Listener target = listener.get(); if (target != null) target.onPatchUpdate(this); }); }
     private void progress(long done, long total, String text) {
         progress = total > 1 ? (int)(1000L * done / total) : -1;
         message = text;
         long now = SystemClock.uptimeMillis();
+        // Limit progress notifications while retaining the latest values for the next UI update.
         if (now - lastReport >= 100) { lastReport = now; notifyListener(); }
     }
+    // Report the final success or failure after the patch operation and its cleanup return.
     @Override public void run() {
         try { runPatch(source); }
         catch (Exception error) {
@@ -71,6 +75,7 @@ final class PatchJob extends ContextWrapper implements Runnable {
     }
 
     private void runPatch(Uri zipUri) throws Exception {
+        // Read the selected edition's manifest for its source hash, rebuilt game data, and final APK checks.
         JSONObject manifest;
         try (InputStream in = getAssets().open(edition + "/assembly.json")) {
             byte[] all = readAll(in);
@@ -79,6 +84,7 @@ final class PatchJob extends ContextWrapper implements Runnable {
         String expectedDataWin = manifest.getString("datawin_sha256");
         JSONObject droidInfo = manifest.getJSONObject("droid");
 
+        // Give this operation its own temporary source, delta, and reconstructed game files.
         File cache = new File(getCacheDir(), "patch-" + java.util.UUID.randomUUID());
         if (!cache.mkdir()) throw new PatchException("Not enough temporary storage.");
         File dataWin = new File(cache, "data.win");
@@ -106,6 +112,7 @@ final class PatchJob extends ContextWrapper implements Runnable {
                             out.write(buf, 0, n);
                         }
                     }
+                    // Accept a candidate data.win only after hashing the complete bounded stream.
                     if (hex(md.digest()).equals(expectedDataWin)) {
                         found = true;
                         break;
@@ -133,6 +140,7 @@ final class PatchJob extends ContextWrapper implements Runnable {
             ContentValues cv = new ContentValues();
             cv.put(MediaStore.Downloads.DISPLAY_NAME, outputName);
             cv.put(MediaStore.Downloads.MIME_TYPE, "application/vnd.android.package-archive");
+            // Keep the Downloads entry pending while the APK is assembled and checked.
             cv.put(MediaStore.Downloads.IS_PENDING, 1);
             Uri collection = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY);
             Uri item = getContentResolver().insert(collection, cv);
@@ -150,7 +158,9 @@ final class PatchJob extends ContextWrapper implements Runnable {
                     for (int i = 0; i < segs.length(); i++) {
                         JSONObject seg = segs.getJSONObject(i);
                         String source = seg.getString("source");
+                        // Splice wrapper bytes, rebuilt game data, and verified original files in the manifest's exact order.
                         if (source.equals("wrapper")) {
+                            // The streamed wrapper must advance sequentially, with a separate checksum for every segment.
                             long off = seg.getLong("offset");
                             if (off != wrapperPos)
                                 throw new PatchException("patch data is out of order (corrupt download?)");
@@ -187,10 +197,12 @@ final class PatchJob extends ContextWrapper implements Runnable {
                         }
                     }
                 }
+                // Reject an APK with the wrong size or checksum.
                 String digest = hex(finalMd.digest());
                 if (done != total || !digest.equals(manifest.getString("final_sha256")))
                     throw new PatchException("final APK failed verification — nothing was kept");
 
+                // After the final size and hash checks, clear the pending flag and expose the result to the UI.
                 cv.clear();
                 cv.put(MediaStore.Downloads.IS_PENDING, 0);
                 getContentResolver().update(item, cv, null, null);
@@ -200,9 +212,11 @@ final class PatchJob extends ContextWrapper implements Runnable {
                 message = "Ready to install " + (edition.equals("dual") ? "Dual Screen" : "Standard")
                         + ".\nVerified APK saved in Downloads.";
             } finally {
+                // Attempt to remove this operation's pending Downloads entry if assembly or verification failed.
                 if (!ok) getContentResolver().delete(item, null, null);
             }
         } finally {
+            // Attempt to remove the private working files regardless of success or failure.
             dataWin.delete();
             deltaFile.delete();
             droidFile.delete();
@@ -211,6 +225,7 @@ final class PatchJob extends ContextWrapper implements Runnable {
     }
 
     private long copySource(Uri uri, JSONObject segment, OutputStream out, MessageDigest finalHash) throws Exception {
+        // Locate an original ZIP member by its relative suffix, then verify its length and hash while copying.
         String member = segment.getString("path");
         try (ZipInputStream zip = new ZipInputStream(getContentResolver().openInputStream(uri))) {
             ZipEntry entry;

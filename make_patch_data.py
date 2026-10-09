@@ -54,6 +54,7 @@ def local_payload_range(apk_path, info):
         hdr = f.read(30)
         if hdr[:4] != b"PK\x03\x04":
             raise RuntimeError(f"bad local header for {info.filename}")
+        # Skip the local ZIP header, filename, and extra fields to locate the stored payload bytes.
         name_len, extra_len = struct.unpack("<HH", hdr[26:30])
         start = info.header_offset + 30 + name_len + extra_len
         return start, start + info.compress_size
@@ -115,6 +116,7 @@ def main(apk_path, ref_path, out_dir):
             droid_bytes = f.read(d_end - d_start)
         cuts.append((d_start, d_end, {"source": "droid"}))
 
+        # Only remove other stored payloads when their bytes match a file in the original release.
         for info in z.infolist():
             if info.filename == "assets/game.droid" or info.is_dir():
                 continue
@@ -134,6 +136,7 @@ def main(apk_path, ref_path, out_dir):
                                         "apk_entry": info.filename}))
                     break
 
+    # Order removed payloads by their physical positions so the wrapper preserves all bytes between them.
     cuts.sort(key=lambda c: c[0])
 
     # Emit droid.xdelta
@@ -151,6 +154,7 @@ def main(apk_path, ref_path, out_dir):
     with open(apk_path, "rb") as src, open(wrapper_path, "wb") as dst:
         pos = 0
         w_off = 0
+        # Record each untouched APK range and each reconstruction instruction in their original order.
         for start, end, desc in cuts:
             if start > pos:
                 src.seek(pos)
@@ -169,6 +173,7 @@ def main(apk_path, ref_path, out_dir):
                              "length": len(chunk), "sha256": sha256_bytes(chunk)})
 
     version = apk_path.name.split("-")[1] if "-" in apk_path.name else "unknown"
+    # Store the selected APK's size and hashes alongside the ordered reconstruction plan.
     manifest = {
         "version": version,
         "apk_name": apk_path.name,
@@ -204,6 +209,7 @@ def main(apk_path, ref_path, out_dir):
                 assert sha256_bytes(chunk) == seg["sha256"], f"zip segment mismatch {seg['path']}"
             rebuilt.update(chunk)
             total += len(chunk)
+    # Accept the generated plan only when its reconstructed stream matches the canonical size and hash.
     assert total == apk_size, f"size mismatch {total} != {apk_size}"
     assert rebuilt.hexdigest() == apk_sha, "SELF-CHECK FAILED: reassembly != canonical"
 

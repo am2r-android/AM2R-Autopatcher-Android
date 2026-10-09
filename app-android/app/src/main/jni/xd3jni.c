@@ -25,6 +25,7 @@
 
 static uint8_t *read_all(const char *path, size_t *out_size)
 {
+    // Read a complete source or delta file into the buffers required by the memory decoder.
     FILE *f = fopen(path, "rb");
     if (!f) return NULL;
     fseek(f, 0, SEEK_END);
@@ -54,6 +55,7 @@ Java_com_community_am2r_patcher_Xd3_decode(JNIEnv *env, jclass cls,
     uint8_t *src = NULL, *delta = NULL, *out = NULL;
     usize_t out_size = 0;
 
+    // Allocate source, delta, and expected output storage, retaining a distinct failure code for each stage.
     src = read_all(src_path, &src_size);
     if (!src) { ret = -2; goto done; }
     delta = read_all(delta_path, &delta_size);
@@ -61,18 +63,21 @@ Java_com_community_am2r_patcher_Xd3_decode(JNIEnv *env, jclass cls,
     out = malloc((size_t)expected_size);
     if (!out) { ret = -4; goto done; }
 
+    // Require the decoder to produce the manifest's exact game-data size before writing its result.
     int r = xd3_decode_memory(delta, (usize_t)delta_size,
                               src, (usize_t)src_size,
                               out, &out_size, (usize_t)expected_size, 0);
     if (r != 0) { ret = -5; goto done; }
     if ((jlong)out_size != expected_size) { ret = -6; goto done; }
 
+    // Write the reconstructed bytes to the temporary file that Java will hash next.
     FILE *f = fopen(dst_path, "wb");
     if (!f) { ret = -7; goto done; }
     if (fwrite(out, 1, out_size, f) != out_size) { fclose(f); ret = -8; goto done; }
     fclose(f);
     ret = 0;
 
+// Release every allocated buffer and borrowed Java path before returning the result code.
 done:
     free(src); free(delta); free(out);
     (*env)->ReleaseStringUTFChars(env, jsrc, src_path);

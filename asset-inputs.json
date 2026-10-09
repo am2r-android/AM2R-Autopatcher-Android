@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "edition": "launcher",
+  "files": [
+    {
+      "path": "README.md",
+      "size": 6066,
+      "sha256": "615720a4528f6948d1c69a52ee0576507437ba21db77b513de85269fbaec9c1c"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/bg_samus.png",
+      "size": 707004,
+      "sha256": "589e02b671366dc17b36a0f3f04ee2112d90dfccb3463c258b704022bbff33d2"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/ending_samus.png",
+      "size": 17368,
+      "sha256": "95b4b5da1cf086601175097567238b3dee8effea931fd7515a5a05f3cb43bef7"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/ending_stars.png",
+      "size": 86424,
+      "sha256": "09cdab345296f842f1da20278b969859b896fa0aa9b1c847f7857d6082478635"
+    },
+    {
+      "path": "app-android/app/src/main/res/drawable-nodpi/ic_launcher_fg.png",
+      "size": 5803,
+      "sha256": "b7638a6dc7325f7415d5eaf7b70d38bb6f8b660f57bf7d37612868311801fd8d"
+    },
+    {
+      "path": "app-android/app/src/main/res/font/am2r_menu.ttf",
+      "size": 947036,
+      "sha256": "b3c5a8217ca13e615067796d50a17410e40529e5cd551d18e1ed30ae6763c4f0"
+    },
+    {
+      "path": "app-android/app/src/main/res/font/am2r_small.ttf",
+      "size": 1296552,
+      "sha256": "abe5d3d934885a3338c3dde9097f24f8a8eab86e3b5fc55ec2d4a6d96e9798cb"
+    },
+    {
+      "path": "app-android/app/src/main/res/raw/menu_move.wav",
+      "size": 4854,
+      "sha256": "c9999560194a10e897bc7cfa7b58604e14f17f39ea3693f3a774af278a6cba23"
+    },
+    {
+      "path": "build-windows-exe.yml",
+      "size": 855,
+      "sha256": "d9f8fee50b7e29a8ff466577e27485c6bf2b40dbf87119658aa56e84ba7391b3"
+    },
+    {
+      "path": "patch-bundle/dual/assembly.json",
+      "size": 787,
+      "sha256": "b85a827eac306129c605fb9fd584e53c1753f0e9c940ff894b614aa1928ed5f8"
+    },
+    {
+      "path": "patch-bundle/dual/droid.xdelta",
+      "size": 27571817,
+      "sha256": "6c330d048cf5ce540228536bfdff84e13ed27348c8115f282cc8d9246cd5d3d1"
+    },
+    {
+      "path": "patch-bundle/dual/wrapper.bin",
+      "size": 262000706,
+      "sha256": "d2f110868f616aa3f205c4358032d35763c061ca8887a0f3d3a661c8499a96f7"
+    },
+    {
+      "path": "patch-bundle/standard/assembly.json",
+      "size": 784,
+      "sha256": "4f691d7aa5b1baaa5e95189d0461ad636122cc6e2d18f503cdf0bfe67d02ee0d"
+    },
+    {
+      "path": "patch-bundle/standard/droid.xdelta",
+      "size": 26753309,
+      "sha256": "8ddb595274aefcfb04809b437434a2323cbc6dc9612dfddeb67d0e110cac9cd6"
+    },
+    {
+      "path": "patch-bundle/standard/wrapper.bin",
+      "size": 261985730,
+      "sha256": "32fec3e84ce8f397994f01e3d5c02ac2aa4d478ee3715605c52c9eb40e4b2dcb"
+    },
+    {
+      "path": "vendor/xdelta3/windows-x64/xdelta3.exe",
+      "size": 548804,
+      "sha256": "9bf8d067de9448e521afe1f8108caa0f85b4b7c7933641efd44bc43533920565"
+    }
+  ],
+  "donorArchiveRoot": "AM2R-Autopatcher"
+}

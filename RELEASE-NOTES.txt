@@ -1,0 +1,124 @@
+# AM2R Android — 1.5.5.10
+
+An update to 1.5.5.9, with new area backdrops and display fixes. The autopatcher
+turns **your own copy** of the original AM2R 1.1 Windows release (`AM2R_11.zip`)
+into either the Standard or Dual Screen Android edition. Nothing playable is
+hosted here.
+
+**AYN Thor has been tested on physical hardware and confirmed working.**
+RG DS, Retroid Pocket Duo / Duo Lite and AYANEO Pocket DS profiles are included,
+but physical compatibility remains **unconfirmed**. Desktop display tests do
+not establish performance on those handhelds.
+
+## Changelog since 1.5.5.9
+
+### Dual Screen
+
+- Added the standard menu sounds to first-boot hardware selection, for changing
+  the highlighted profile and confirming by controller or touch.
+
+- Replaced the temporary log-picture map backgrounds with 28 selected room
+  views, treated with a green palette to match the map. Different subareas
+  have their own backgrounds, including the intact egg in the laboratory.
+- Added changing backgrounds for the activated tower and the Power Plant
+  before and after the escape. Area headings follow the current background,
+  with transitions between them.
+- Reframed the inner Tower using the room before Plasma Beam, with matching
+  dark and powered views. The Distribution Center interior now uses one
+  sawblade-room view, with a separate underwater room view.
+- Changed filled energy tanks to yellow (#F2CE45) on the lower HUD. Selected
+  weapons use yellow Standard-style artwork with subtle scanlines and rounded
+  corners inside the green dividers. The separate selection underline is removed.
+  Hold mode turns the selected box white while the weapon button is held.
+  Empty tanks remain gray and unselected weapons remain green.
+- Added a red pulse to the lower health digits using the original low-energy
+  warning thresholds and timing. Corrected HUD recoloring on mobile GPUs.
+- Area pictures and headings now wait for the original environment scan.
+  Industrial Complex stays undiscovered until its scan trigger beyond the tall
+  wall. Saved discoveries are reused on return visits, and a completed scan
+  updates the map without requiring another room transition.
+- Fixed a brief GFS Thoth picture and heading appearing when starting or loading
+  a save. The lower map now starts with the selected save's current area.
+- Kept the title-screen version label inside the RG DS profile's centered 4:3
+  picture when it is used on a wider display.
+- Cached translated lower-map headings to avoid repeated language-file reads
+  while drawing. Captions refresh when the selected language changes.
+- Kept the lower map visible during normal room transitions, without the
+  previous blackout. The area's picture and heading can change while it remains
+  visible.
+- Matched the reactor escape's white flash across both screens. This also
+  applies when the escape timer expires; the lower display clears for Game Over.
+  The successful escape retains the original drain to 05 energy.
+- Preserved the selected 8-bit palette when pausing. With a palette enabled,
+  the upper screen fades to 70% dimming; with the shader off, it fades to Olive
+  with 50% dimming. Pausing no longer briefly reveals the unfiltered picture.
+- Set IGT Display to Enabled and made it read-only in Dual Screen Extras,
+  matching the timer that is always present on the lower display.
+
+### Both game editions
+
+- Restored the left Chozo statue's raised arm in the Golden Temple's three-switch
+  item room and mirrored that statue. This changes the decorative tiles;
+  room collisions, pickups and puzzle behavior are unchanged.
+
+### Autopatcher and source
+
+- Rebuilt both edition payloads with these changes.
+- Raised the autopatcher version to 1.5.5.10 and its internal build number to 8.
+  Both generated games report version 1.5.5.10 and retain their existing package
+  names, signing certificate and game version code.
+- Refreshed the separate code-only archives for Standard, Dual Screen and the
+  autopatcher, including build notes, license notices and excluded-input manifests.
+
+## Updating
+
+1. Install `AM2R-Autopatcher-1.5.5.10.apk` on ARM64 Android 10 or newer.
+2. Choose Standard or Dual Screen and patch your original `AM2R_11.zip` again.
+3. Install the newly generated game APK over the same edition. Back up first;
+   updating preserves saves, while uninstalling the game deletes its private saves.
+
+Updating the autopatcher alone does not update an already installed game.
+Once installed, the game launches independently of the autopatcher.
+Standard and Dual Screen use separate save storage. Use Options → Data →
+Backup / Restore to transfer progress between editions or PC Community Updates
+1.5.5. Compatibility with original 1.1 or other mods' saves is not implied.
+
+## Downloads and source
+
+- `AM2R-Autopatcher-1.5.5.10.apk`
+- `AM2R-Autopatcher-1.5.5.10-source.zip`
+- `AM2R-1.5.5.10-standard-source.zip`
+- `AM2R-1.5.5.10-dual-source.zip`
+- `SHA256SUMS`
+
+Keep these five files together and run `sha256sum -c SHA256SUMS` to verify them.
+The three source archives contain editable code and build/resource definitions.
+Images, audio, font payloads, datafiles, compiled binaries, generated patch
+payloads, signing material and revision history are excluded from the sources.
+The Android autopatcher APK contains the patch data needed to patch your ZIP.
+
+Game code retains the AM2R Community Updates license and original attribution;
+autopatcher code retains its MIT notice and xdelta3 its Apache 2.0 notice. The
+palette implementation includes its MIT notice. These are code-only exports,
+not complete projects that build without additional local inputs. Each README
+explains restoration and the pinned build environment. A game rebuild from only
+the original Windows 1.1 ZIP is not verified.
+
+## Verification and remaining coverage
+
+The generated game APKs retain their release signatures and are checked against
+their signed build checksums. Both edition payloads are reconstructed from the
+original ZIP and compared byte-for-byte with those builds.
+
+Focused checks cover normal room crossings, selected palettes while pausing,
+the IGT setting, both reactor outcomes and the statue room. The new HUD colors
+were checked across all four profiles, including health changes and weapon
+selection; the new room pictures were checked with the original scan gates.
+New and continued saves were checked across all four profiles, including returning
+from GFS Thoth to a new save. The title label was checked in widescreen and at
+640x480. Cached headings were compared with the original text and drawing across
+all 13 bundled languages, including language changes and area-name fades.
+These do not amount to a new full-game playthrough. AYN Thor is the physically confirmed Dual Screen
+device; the other profiles still need testing on their actual handhelds.
+This release does not guarantee 60 fps on every device. Please include the device,
+Android version, selected profile and reproduction steps with issue reports.
