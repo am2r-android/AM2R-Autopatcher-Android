@@ -12,7 +12,7 @@ not establish performance on those handhelds.
 
 ## Changelog since 1.5.5.9
 
-### Dual Screen
+### Dual Screen [CONTAINS SPOILERS]
 
 - Added the standard menu sounds to first-boot hardware selection, for changing
   the highlighted profile and confirming by controller or touch.
