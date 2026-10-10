@@ -50,17 +50,17 @@
     {
       "path": "patch-bundle/dual/assembly.json",
       "size": 787,
-      "sha256": "b85a827eac306129c605fb9fd584e53c1753f0e9c940ff894b614aa1928ed5f8"
+      "sha256": "3af73fa4336b6f62cd202cda2a88b35bcff6b7a8250e78fba6ab41dd1d264c8c"
     },
     {
       "path": "patch-bundle/dual/droid.xdelta",
-      "size": 27571817,
-      "sha256": "6c330d048cf5ce540228536bfdff84e13ed27348c8115f282cc8d9246cd5d3d1"
+      "size": 27571670,
+      "sha256": "4c104daa714190c6471434d7a6eef72240dbd4e794b001b89e9a5f1e1a82a62f"
     },
     {
       "path": "patch-bundle/dual/wrapper.bin",
-      "size": 262000706,
-      "sha256": "d2f110868f616aa3f205c4358032d35763c061ca8887a0f3d3a661c8499a96f7"
+      "size": 262003522,
+      "sha256": "250e7f860948c8cfc4c76a73a45c710abb1568c78ff812e9723e760d1b5a928a"
     },
     {
       "path": "patch-bundle/standard/assembly.json",
