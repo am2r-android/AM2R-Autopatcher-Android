@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "release": "1.5.5.11",
+  "game": {
+    "title": "AM2R: Return of Samus",
+    "developer": "DoctorM64 / AM2R Community",
+    "original_release_year": 2016,
+    "genre": "Action-Adventure / Metroidvania",
+    "players": 1,
+    "franchise": "Metroid",
+    "platform": "Android",
+    "description": "A Sinister Planet Threatens the Galaxy!\n\nSpace Hunter Samus Aran returns to battle a planet crawling with evil creatures bent on universal domination in this bigger than ever remake of the Game Boy classic, Metroid II!\n\nTake control! Guide Samus through cavernous corridors, ancient ruins and alien traps. On the mysterious planet of the Metroids, you’ll find artifacts of a lost civilization that grant amazing powers. Cut through creatures in a buzz-saw blur! Roll through hidden tunnels and climb sheer walls! If you are a cunning explorer, you’ll earn the best of several super endings.\n\nEnter this exciting Metroid II remake and experience the thrills like never before!"
+  },
+  "artwork": {
+    "icon": {
+      "path": "artwork/am2r-icon.png",
+      "size": [
+        1280,
+        1280
+      ],
+      "sha256": "57de47b0e4756ff00af8d4156abd3d4e60f9b51aed601747bd14b749e41bdc0e"
+    },
+    "hero": {
+      "path": "artwork/am2r-hero.jpg",
+      "size": [
+        1920,
+        1200
+      ],
+      "sha256": "e9c0bd96b9b931facf965d21eb082ba9175f9b3d0163da8e32c0bd1312da4637"
+    },
+    "portrait": {
+      "path": "artwork/am2r-portrait.png",
+      "size": [
+        187,
+        280
+      ],
+      "sha256": "5dd995bf5c747bfd2efd2bd1a5e87aefca28ea293a094a226816e6d09db3ca54"
+    },
+    "box_front": {
+      "path": "artwork/am2r-box-front.jpg",
+      "size": [
+        199,
+        281
+      ],
+      "sha256": "63eb95f0ce7855dfa7620fbc9d733fbcd13c81e4aac1fab140e3e473d416feca"
+    },
+    "box_back": {
+      "path": "artwork/am2r-box-back.png",
+      "size": [
+        400,
+        435
+      ],
+      "sha256": "f279d72b59ea2c843015f32174ead864cd3ea39b74499175928d0a93b087d3b6"
+    },
+    "logo": {
+      "path": "artwork/am2r-logo.png",
+      "size": [
+        372,
+        111
+      ],
+      "sha256": "856735ed6f5d12caa8377359868160d0f4510e087a803cd381aec779049854d4"
+    },
+    "dual_controller_splash": {
+      "path": "artwork/am2r-dual-controller-splash.png",
+      "size": [
+        4596,
+        4596
+      ],
+      "sha256": "5083e91c02a85cfc4b31a3a8ef845b3e2dd688ce0ee05051280d1d0d456548c8"
+    }
+  },
+  "editions": {
+    "standard": {
+      "edition": "Standard",
+      "application_label": "AM2R: Return of Samus",
+      "package_name": "com.community.am2r",
+      "version_name": "1.5.5 arm64",
+      "version_code": 1005006
+    },
+    "dual": {
+      "edition": "Dual Screen",
+      "application_label": "AM2R: Return of Samus DS",
+      "package_name": "com.community.am2rdual",
+      "version_name": "1.5.5 arm64 DS",
+      "version_code": 1005006
+    }
+  },
+  "reference_records": {
+    "launchbox_android": "https://gamesdb.launchbox-app.com/games/details/421008-am2r-return-of-samus",
+    "igdb": "https://www.igdb.com/games/am2r-return-of-samus"
+  }
+}

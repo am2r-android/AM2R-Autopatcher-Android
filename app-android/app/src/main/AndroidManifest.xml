@@ -9,6 +9,11 @@
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
         android:largeHeap="true">
         <activity
+            android:name=".InstallActivity"
+            android:screenOrientation="sensorLandscape"
+            android:launchMode="singleTop"
+            android:exported="false" />
+        <activity
             android:name=".PatcherActivity"
             android:screenOrientation="sensorLandscape"
             android:exported="true">

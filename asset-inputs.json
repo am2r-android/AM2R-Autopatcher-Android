@@ -48,40 +48,74 @@
       "sha256": "d9f8fee50b7e29a8ff466577e27485c6bf2b40dbf87119658aa56e84ba7391b3"
     },
     {
+      "path": "game-metadata/artwork/am2r-box-back.png",
+      "size": 245244,
+      "sha256": "f279d72b59ea2c843015f32174ead864cd3ea39b74499175928d0a93b087d3b6"
+    },
+    {
+      "path": "game-metadata/artwork/am2r-box-front.jpg",
+      "size": 69847,
+      "sha256": "63eb95f0ce7855dfa7620fbc9d733fbcd13c81e4aac1fab140e3e473d416feca"
+    },
+    {
+      "path": "game-metadata/artwork/am2r-dual-controller-splash.png",
+      "size": 707487,
+      "sha256": "5083e91c02a85cfc4b31a3a8ef845b3e2dd688ce0ee05051280d1d0d456548c8"
+    },
+    {
+      "path": "game-metadata/artwork/am2r-hero.jpg",
+      "size": 1418983,
+      "sha256": "e9c0bd96b9b931facf965d21eb082ba9175f9b3d0163da8e32c0bd1312da4637"
+    },
+    {
+      "path": "game-metadata/artwork/am2r-icon.png",
+      "size": 1867624,
+      "sha256": "57de47b0e4756ff00af8d4156abd3d4e60f9b51aed601747bd14b749e41bdc0e"
+    },
+    {
+      "path": "game-metadata/artwork/am2r-logo.png",
+      "size": 45052,
+      "sha256": "856735ed6f5d12caa8377359868160d0f4510e087a803cd381aec779049854d4"
+    },
+    {
+      "path": "game-metadata/artwork/am2r-portrait.png",
+      "size": 112721,
+      "sha256": "5dd995bf5c747bfd2efd2bd1a5e87aefca28ea293a094a226816e6d09db3ca54"
+    },
+    {
       "path": "patch-bundle/dual/assembly.json",
       "size": 787,
-      "sha256": "3af73fa4336b6f62cd202cda2a88b35bcff6b7a8250e78fba6ab41dd1d264c8c"
+      "sha256": "49d3c34f4488ce3cc4f84b902ea3481439515d9a693d0ec20d1652d875057851"
     },
     {
       "path": "patch-bundle/dual/droid.xdelta",
-      "size": 27571670,
-      "sha256": "4c104daa714190c6471434d7a6eef72240dbd4e794b001b89e9a5f1e1a82a62f"
+      "size": 27779324,
+      "sha256": "234355e79919f8c4644862bbdce0d2c3e550e1fb46e7bf2533287ab5dacd71b6"
     },
     {
       "path": "patch-bundle/dual/wrapper.bin",
-      "size": 262003522,
-      "sha256": "250e7f860948c8cfc4c76a73a45c710abb1568c78ff812e9723e760d1b5a928a"
+      "size": 262612290,
+      "sha256": "4fbc1f7ab1e3e0120a4458a9dc80e85f8792228c07f99a82ea39d172ac9eee6a"
     },
     {
       "path": "patch-bundle/standard/assembly.json",
       "size": 784,
-      "sha256": "4f691d7aa5b1baaa5e95189d0461ad636122cc6e2d18f503cdf0bfe67d02ee0d"
+      "sha256": "96c4ed12ee55e5093548d2e6302804671caf02c0e883cfcb994af078c239cf8d"
     },
     {
       "path": "patch-bundle/standard/droid.xdelta",
-      "size": 26753309,
-      "sha256": "8ddb595274aefcfb04809b437434a2323cbc6dc9612dfddeb67d0e110cac9cd6"
+      "size": 26757767,
+      "sha256": "48cc50a9480385275e12a37bbf61733eff94af352bf809e7d5c0e1dad04bd75e"
     },
     {
       "path": "patch-bundle/standard/wrapper.bin",
-      "size": 261985730,
-      "sha256": "32fec3e84ce8f397994f01e3d5c02ac2aa4d478ee3715605c52c9eb40e4b2dcb"
+      "size": 262609218,
+      "sha256": "3fa0ff625f15446669e00e12bd8e5a2f2cb0398060894f50efa125d6e72fe5a6"
     },
     {
       "path": "vendor/xdelta3/windows-x64/xdelta3.exe",
       "size": 548804,
       "sha256": "9bf8d067de9448e521afe1f8108caa0f85b4b7c7933641efd44bc43533920565"
     }
-  ],
-  "donorArchiveRoot": "AM2R-Autopatcher"
+  ]
 }

@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
+def gameMetadata = new groovy.json.JsonSlurper().parse(new File(projectDir, '../../game-metadata/game.json'))
+
 android {
     namespace 'com.community.am2r.patcher'
     compileSdk 36
@@ -11,8 +13,10 @@ android {
         applicationId "com.community.am2r.patcher"
         minSdk 29
         targetSdk 36
-        versionCode 9
-        versionName "1.5.5.10-hotfix1"
+        versionCode 10
+        versionName "1.5.5.11"
+        buildConfigField 'String', 'GAME_STANDARD_PACKAGE', groovy.json.JsonOutput.toJson(gameMetadata.editions.standard.package_name)
+        buildConfigField 'String', 'GAME_DUAL_PACKAGE', groovy.json.JsonOutput.toJson(gameMetadata.editions.dual.package_name)
         manifestPlaceholders = [appLabel: 'AM2R Patcher']
         ndk { abiFilters 'arm64-v8a' }
     }
@@ -58,6 +62,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    buildFeatures { buildConfig true }
 }
 
 tasks.register('verifyPatchBundle') {

@@ -1,4 +1,4 @@
-AM2R Autopatcher 1.5.5.10 Hotfix 1 — source
+AM2R Autopatcher 1.5.5.11 — source
 
 This archive contains the Android Java/C implementation, Python patcher and
 patch generator, build definitions, tests and dependency notices. The patcher
@@ -31,3 +31,7 @@ environment. Use your own key; the original release key is never provided.
 Run python3 -m unittest -v test_patch_editions.py from this folder. The desktop
 patcher requires Python 3.8+ and a separately installed xdelta3 executable.
 Real patch reconstruction additionally needs the matching private inputs.
+
+Game identity and artwork are maintained in game-metadata/game.json. Read its README.txt and use prepare_game_metadata.py before rebuilding the signed games and their patch bundles. The export helper preserves supplied originals when they are available locally.
+
+See SAVE-SYNC.txt for optional shared-folder synchronization, conflict handling and the limits of service compatibility.

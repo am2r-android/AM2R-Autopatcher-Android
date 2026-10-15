@@ -1,24 +1,62 @@
-# AM2R Android — 1.5.5.10 Hotfix 1
+AM2R Autopatcher 1.5.5.11
 
-This hotfix updates the Dual Screen edition:
+Builds the Standard or Dual Screen ARM64 Android edition from your own original
+AM2R 1.1 Windows ZIP. The installed game runs independently of the autopatcher.
 
-- Restores the reactor core temperature bar exclusively on the upper screen.
-- Removes the lower screen's 30 fps update cap for smoother map panning,
-  log scrolling and menus.
-- Adds **Display Options → HUD Screen Position**. Keep health and ammunition
-  below, or move them to the original upper HUD. The map, timer, completion
-  percentage and Metroid counts remain below. The choice is saved.
-- Restores upper-screen area-arrival titles and preserves the HUD while paused.
+Changes since 1.5.5.10 Hotfix 1
+- Standard: touch controls are sampled before the gameplay input update, avoiding
+  the extra simulation-step delay. Physical-controller handling is preserved.
+- Dual Screen: HUD Style offers Large or Minimal for the lower screen. Large
+  is the default for new settings; existing choices are preserved. Large uses
+  separate health and ammo rows, tall blue energy bars, remaining ammo grouped
+  on the left, and the area title on the right. Metroid counters sit above the
+  area title with matching panel edges; completion percentage sits at the far
+  right of the timer strip. Minimal remains available, and HUD Style is disabled
+  when HUD Screen Position is Top Screen.
+  One bottom toolbar shows + / - / 1x / Fit Map / Follow during play, and
+  Marker / Menu / Unpause on the paused map. All four profile layouts are updated.
+- Dual Screen: adds the Mining Facility map title and drill-chamber background.
+- Dual Screen: uses the dedicated Dual-Screen controller recommendation
+  artwork. Standard keeps its original controller recommendation screen.
+- Both games: updated launcher artwork and adaptive icons, clearer application
+  names, and Android game-category declarations. Existing package IDs and signing
+  compatibility are retained. Game version code increases to 1005006.
+- Both games: optional shared-folder save synchronization through Options → Data.
+  Checks run before file selection and after saving. Conflicting changes are held
+  for review and recovery copies are retained. Configure a separate file-sync
+  app to transfer the folder; see SAVE-SYNC.txt. Manual Backup / Restore remains.
+- Autopatcher: Android installation results are shown directly. Failed installs
+  create a local diagnostic file labeled "share this to github issues page",
+  with a Share action. Nothing is uploaded automatically. Cancellation is reported
+  separately, and the generated APK remains available in Downloads.
+- Autopatcher: native patch-library alignment and APK compatibility diagnostics
+  improve support and troubleshooting on newer Android devices.
+- Source: shared game metadata and independent artwork-export helpers are included.
+  Cocoon supports manual title/artwork editing; automatic custom-metadata import
+  has not been confirmed. Artwork payloads remain outside the code-only archives.
 
-**Standard is unchanged.** Its touch-input latency fix is deferred.
-Tested on AYN Thor; RG DS, Retroid Pocket Duo / Duo Lite and AYANEO Pocket DS
-remain unconfirmed on physical hardware.
+Updates and compatibility
+Install over the existing edition to retain its private saves. Do not uninstall
+first. Standard and Dual Screen remain separate apps with separate save storage;
+use the existing Data backup/restore tools to transfer progress.
 
-To update, install the new autopatcher, choose Dual Screen, patch your original
-AM2R 1.1 Windows ZIP again, then install the generated APK over your existing
-game. Back up first; do not uninstall the game. Updating the autopatcher alone
-does not update an installed game. Standard users do not need to repatch.
+AYN Thor has physical test coverage. RG DS, Retroid Pocket Duo / Duo Lite and
+AYANEO Pocket DS profiles still await physical validation. The pinned game runtime
+has a remaining native 16 KB alignment limitation, so installation on every
+16 KB-page device is not guaranteed. Include the new installer report when an
+installation fails. Syncthing transfers passed between two isolated Android
+emulators and a Linux PC, including conflict handling. Desktop import/export
+remains manual. Physical-device sync, Windows/macOS and other services still
+need feedback; no network service is built into the game.
 
-The release includes the autopatcher APK, three code-only source ZIPs and
-SHA256SUMS. Source media and signing files are excluded; original code licenses
-and attribution are retained. No complete game APK is distributed.
+Included files
+AM2R-Autopatcher-1.5.5.11.apk
+AM2R-Autopatcher-1.5.5.11-source.zip
+AM2R-1.5.5.11-standard-source.zip
+AM2R-1.5.5.11-dual-source.zip
+SHA256SUMS
+
+The source archives retain code, resource definitions and required notices while
+excluding image/audio/font payloads, game data, compiled games, patch bundles,
+signing keys and revision history. Existing code licenses still apply. The
+original 1.1 ZIP and complete playable game APKs are not included.

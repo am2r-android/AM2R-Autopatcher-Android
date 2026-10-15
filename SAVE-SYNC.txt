@@ -1,0 +1,58 @@
+AM2R shared-folder save sync
+
+Available in the updated Standard and Dual Screen Android editions.
+Sync is off until you choose a folder in Options > Data > Sync Folder.
+
+Setup
+1. Choose a normal local folder that your syncing app can access.
+2. Configure Syncthing, FolderSync or another file-sync service to synchronize
+   that entire folder, including subfolders, on the devices you use.
+3. In each AM2R edition, select that folder under Options > Data > Sync Folder.
+4. Let the external service finish transferring files before switching devices.
+
+AM2R exports completed progress after a game save and checks shared progress
+when file selection opens. A check is refreshed when selecting a slot after the
+menu has been idle for a minute. Sync Now checks on demand. An active run can
+export its last save; incoming progress waits until the title/Data menu.
+The external service performs network transfers. AM2R does not sign into a
+cloud account and cannot confirm that another device has received a file.
+
+Progress handling
+- Existing save1, save2 and save3 keep their original slot numbers.
+- Repeated unchanged progress does not create another revision.
+- Complete sets have content checksums and must pass the game's full save
+  validator before any local replacement. Interrupted writes retain recovery
+  information; unavailable folder access leaves local saves available.
+- Competing progress is held for review. Use Review Sync Conflict from Data at
+  the title menu to choose this device or one of the shared save sets.
+- Replaced/conflicting progress is retained under AM2R-Sync-Recovery. Those
+  folders contain ordinary portable save files usable with Restore Saves.
+- Missing shared slots do not delete local slots. File deletion is not propagated
+  automatically. Display and control settings stay local to each device.
+- Disable Sync disconnects folder access without deleting progress or shared files.
+
+Folder contents
+Each installation maintains one am2r-sync-<random code>.zip transfer file.
+The code is randomly generated; it is not a device or account identifier.
+The ZIPs are transport files for these Android editions, not extra visible save
+slots. Keep them and AM2R-Sync-Recovery together in the synchronized folder.
+Do not rename or manually merge the contents of transfer ZIPs.
+
+Compatibility
+Services that copy these files unchanged between accessible folders are the
+intended transport. Real Syncthing transfers passed between two isolated Android
+13 emulators and a Linux PC, including loading transferred progress, unchanged
+repeat syncs, conflict review, and rejecting a damaged payload. The test used a
+private Dual Screen preview. Standard uses the same sync code but was not
+separately installed for that test. Physical-device sync, Windows/macOS, other
+services and background/battery behavior remain unverified.
+
+Use separate sync folders for independent playthrough collections. First linking
+different existing save sets requires a choice instead of silently overwriting
+either device's progress.
+
+The unmodified desktop game does not read this transport format automatically.
+Existing Backup Saves / Restore Saves remains available for ordinary PC save
+files and manual transfer. Android-to-Linux and Linux-to-Android transfers
+were checked with manual desktop import/export; there is no automatic desktop
+save integration. No new broad storage permission is needed.

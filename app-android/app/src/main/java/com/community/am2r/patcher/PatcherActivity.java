@@ -227,11 +227,10 @@ public final class PatcherActivity extends Activity implements PatchJob.Listener
         status.setText(updated.message); outputUri = updated.outputUri; outputName = updated.outputName;
         install.setVisibility(outputUri == null ? View.GONE : View.VISIBLE); refreshEdition();
     }
-    // Hand the verified output URI to Android's installer with temporary read permission.
+    // Keep Android's installation result available for reporting compatibility problems.
     private void installApk() {
         if (outputUri == null) return;
-        Intent i = new Intent(Intent.ACTION_VIEW); i.setDataAndType(outputUri, "application/vnd.android.package-archive");
-        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); startActivity(i);
+        startActivity(new Intent(this, InstallActivity.class).setData(outputUri).putExtra("edition", edition));
     }
     // Retain the operation across configuration changes while detaching each destroyed activity's listener.
     @Override public Object onRetainNonConfigurationInstance() { return job; }
