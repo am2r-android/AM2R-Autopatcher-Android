@@ -9,14 +9,16 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.10 Hotfix 1.** AYN Thor has been tested on physical hardware and confirmed working.
+**1.5.5.11.** AYN Thor has been tested on physical hardware and confirmed working.
 The RG DS, Retroid Pocket Duo / Duo Lite and AYANEO Pocket DS profiles are
 included, but physical compatibility remains unconfirmed. When reporting an
 issue, include the device, Android version, profile and steps to reproduce it.
 Photos or a short video of both displays are useful.
 
-Hotfix 1 restores the upper reactor warning, improves lower-screen scrolling,
-and adds HUD placement. The Standard game is unchanged from 1.5.5.10.
+This update improves Standard touch timing, adds Large/Minimal Dual Screen HUD
+styles and shared-folder save synchronization, adds
+the Mining Facility background and dedicated controller splash, refreshes the
+game icons and labels, and adds installation failure reports to the autopatcher.
 
 ## What you need
 
@@ -33,7 +35,7 @@ and adds HUD placement. The Standard game is unchanged from 1.5.5.10.
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Download **AM2R-Autopatcher-1.5.5.10-hotfix1.apk** from the
+2. Download **AM2R-Autopatcher-1.5.5.11.apk** from the
    [release page](https://github.com/am2r-android/AM2R-Autopatcher-Android/releases)
    and install it. Allow installation
    from your browser or file manager when Android asks.
@@ -43,7 +45,10 @@ and adds HUD placement. The Standard game is unchanged from 1.5.5.10.
    game APK is saved in **Downloads**. Your original ZIP stays unchanged.
 5. Tap **Install Standard** or **Install Dual Screen** to open Android's installer.
    Allow AM2R Patcher to install the generated APK if Android asks.
-6. Open the installed game directly. Dual Screen asks you to choose your hardware
+6. If installation fails, the patcher saves a diagnostic report in Downloads.
+   Use its Share action or attach the file to a GitHub issue. It is never uploaded
+   automatically. The generated APK remains in Downloads.
+7. Open the installed game directly. Dual Screen asks you to choose your hardware
    on first boot; the same choice remains available in **Display Options**.
 
 **Updates install over the existing edition — saves are kept.** Back up your saves
@@ -61,8 +66,15 @@ Windows patcher executable and ready-to-run desktop patch bundle are not include
 - **Dual Screen** puts gameplay above and a live map below. **Display Options →
   HUD Screen Position** lets you keep health and ammunition below or restore the
   original HUD above. Choosing Top leaves the lower health/ammo strip empty; the
-  map, timer, item percentage and Metroid counts stay below. Filled lower-screen
-  energy tanks and selected ammunition icons use yellow highlights.
+  map, timer, item percentage and Metroid counts stay below. **HUD Style** offers
+  Minimal and Large when the HUD is below. Large is the default for new settings;
+  an existing style choice is kept. Energy tanks use their original blue color.
+  Large uses tall blue energy bars and separate health and ammunition rows,
+  remaining ammo counts grouped on the left, and the area title on the right.
+  Metroid counters occupy the panel above the title. Completion percentage sits at the far right of the timer strip. HUD Style
+  is disabled while HUD Screen Position is Top Screen.
+  A single bottom toolbar shows
+  map controls during play and Marker / Menu / Unpause on the paused map.
   Touch can pan and zoom the map while gameplay continues. Fit Map frames the
   revealed map; Follow returns to the last manual zoom and tracks the player's
   map cell. Pausing freezes and dims the
@@ -77,12 +89,35 @@ screen to 4:3. Retroid Pocket Duo and Duo Lite share a profile. Dual Screen uses
 the handheld's controller for Samus and the lower touch interface for the map and
 menus; it does not use the Standard edition's on-screen gameplay controls.
 
-## Save backup and restore
+Both games retain their released package IDs and signing certificate. Android
+labels are **AM2R: Return of Samus** and **AM2R: Return of Samus DS**.
+Game version code is 1005006; Android version names are `1.5.5 arm64` and
+`1.5.5 arm64 DS`. The patcher release version remains **1.5.5.11**.
+
+Game-category declarations are included for frontends. Cocoon documents manual
+artwork and description editing, but automatic import of our metadata is not
+confirmed. The source includes a central metadata definition and export helpers.
+The pinned game runtime still has a native 16 KB alignment limitation; support
+for every 16 KB-page Android device is not guaranteed.
+
+## Saves, backup and synchronization
 
 Both editions use **Options → Data → Backup / Restore**. Backups can transfer
 progress between Standard, Dual Screen and **PC Community Updates 1.5.5**.
 Choose the incoming save and destination slot before confirming a restore.
 Settings and controller bindings stay specific to each installation.
+
+**Options → Data → Sync Folder** can connect either edition to a folder copied
+by a service such as Syncthing. This is optional and disabled until you choose a
+folder. The game checks for incoming progress before file selection and exports
+after saving; it does not replace progress during active gameplay. Conflicting
+changes are held for review, and recovery copies are retained. There is no built-in
+network service: configure your preferred file-sync app separately. Read
+**SAVE-SYNC.txt** for setup and recovery details. Real Syncthing transfers passed
+between two isolated Android emulators and a Linux PC, including conflict review
+and loading transferred progress. Physical-device sync, Windows/macOS and other
+services remain unverified. Unmodified desktop builds do not read the sync
+transport directly; use manual Backup / Restore for those transfers.
 
 For Android to PC, copy the files inside the timestamped backup folder into the
 PC save directory while the game is closed. Preserve a copy of existing PC saves.
@@ -108,12 +143,12 @@ signed build. A complete playable game APK is not included in this package.
 
 ## Checksums and source
 
-The release has five attachments:
+The release includes:
 
-- `AM2R-Autopatcher-1.5.5.10-hotfix1.apk`
-- `AM2R-Autopatcher-1.5.5.10-hotfix1-source.zip`
-- `AM2R-1.5.5.10-hotfix1-standard-source.zip`
-- `AM2R-1.5.5.10-hotfix1-dual-source.zip`
+- `AM2R-Autopatcher-1.5.5.11.apk`
+- `AM2R-Autopatcher-1.5.5.11-source.zip`
+- `AM2R-1.5.5.11-standard-source.zip`
+- `AM2R-1.5.5.11-dual-source.zip`
 - `SHA256SUMS`
 
 Download them into the same folder. On Linux, run:
@@ -123,7 +158,8 @@ sha256sum -c SHA256SUMS
 ```
 
 Both game editions have been reconstructed byte-for-byte from the patch data
-inside this autopatcher. The checksums cover the APK and all three source archives.
+inside this autopatcher. The checksums cover the APK, all three source archives
+and the included documentation. Individual checksum files are also provided.
 
 The autopatcher source contains its Android Java/C implementation, Python tools,
 build definitions, tests and license notices. The two game sources contain GML,
