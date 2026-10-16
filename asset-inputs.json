@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "README.md",
-      "size": 6066,
-      "sha256": "615720a4528f6948d1c69a52ee0576507437ba21db77b513de85269fbaec9c1c"
+      "size": 11498,
+      "sha256": "2d069bc703c00552d80f44cd0900418147763bdb47971f23c1249230c2a77683"
     },
     {
       "path": "app-android/app/src/main/res/drawable-nodpi/bg_samus.png",
@@ -84,33 +84,33 @@
     },
     {
       "path": "patch-bundle/dual/assembly.json",
-      "size": 787,
-      "sha256": "49d3c34f4488ce3cc4f84b902ea3481439515d9a693d0ec20d1652d875057851"
+      "size": 795,
+      "sha256": "58904badea21321dfcd95e4983f70e406bdaab48f9a0923e64d3d90f38b289d4"
     },
     {
       "path": "patch-bundle/dual/droid.xdelta",
       "size": 27779324,
-      "sha256": "234355e79919f8c4644862bbdce0d2c3e550e1fb46e7bf2533287ab5dacd71b6"
+      "sha256": "53573275f81808ee1b0aed96172642830efdc9d1d1c2421a63ab899922f330d8"
     },
     {
       "path": "patch-bundle/dual/wrapper.bin",
       "size": 262612290,
-      "sha256": "4fbc1f7ab1e3e0120a4458a9dc80e85f8792228c07f99a82ea39d172ac9eee6a"
+      "sha256": "52b65dc34aeadc5fed0d59cf6ebd11113f48076ab0bbb92506e5a9e15608a6a9"
     },
     {
       "path": "patch-bundle/standard/assembly.json",
-      "size": 784,
-      "sha256": "96c4ed12ee55e5093548d2e6302804671caf02c0e883cfcb994af078c239cf8d"
+      "size": 792,
+      "sha256": "b35381dc5d75919c46c201e22c63b1748a50f4af8b2cd97a9f71edf078f9bd81"
     },
     {
       "path": "patch-bundle/standard/droid.xdelta",
-      "size": 26757767,
-      "sha256": "48cc50a9480385275e12a37bbf61733eff94af352bf809e7d5c0e1dad04bd75e"
+      "size": 26757682,
+      "sha256": "ea9d89d534b636ae74523847e559d7318ddc6a5e9c911e33259754f6131384b3"
     },
     {
       "path": "patch-bundle/standard/wrapper.bin",
-      "size": 262609218,
-      "sha256": "3fa0ff625f15446669e00e12bd8e5a2f2cb0398060894f50efa125d6e72fe5a6"
+      "size": 262610754,
+      "sha256": "99a33c65fab36f2046e544d3bd5c43f6d85b41c92db498cbb736ed1c61170c18"
     },
     {
       "path": "vendor/xdelta3/windows-x64/xdelta3.exe",

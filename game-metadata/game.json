@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release": "1.5.5.11",
+  "release": "1.5.5.11-hotfix1",
   "game": {
     "title": "AM2R: Return of Samus",
     "developer": "DoctorM64 / AM2R Community",
@@ -75,14 +75,14 @@
       "application_label": "AM2R: Return of Samus",
       "package_name": "com.community.am2r",
       "version_name": "1.5.5 arm64",
-      "version_code": 1005006
+      "version_code": 1005007
     },
     "dual": {
       "edition": "Dual Screen",
       "application_label": "AM2R: Return of Samus DS",
       "package_name": "com.community.am2rdual",
       "version_name": "1.5.5 arm64 DS",
-      "version_code": 1005006
+      "version_code": 1005007
     }
   },
   "reference_records": {

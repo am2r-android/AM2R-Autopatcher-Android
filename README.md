@@ -9,16 +9,21 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.11.** AYN Thor has been tested on physical hardware and confirmed working.
+**1.5.5.11-hotfix1.** AYN Thor has been tested on physical hardware and confirmed working.
 The RG DS, Retroid Pocket Duo / Duo Lite and AYANEO Pocket DS profiles are
 included, but physical compatibility remains unconfirmed. When reporting an
 issue, include the device, Android version, profile and steps to reproduce it.
 Photos or a short video of both displays are useful.
 
-This update improves Standard touch timing, adds Large/Minimal Dual Screen HUD
-styles and shared-folder save synchronization, adds
-the Mining Facility background and dedicated controller splash, refreshes the
-game icons and labels, and adds installation failure reports to the autopatcher.
+**Hotfix 1 fixes weapon selection with Standard touch controls in Hold mode.**
+Once both missile types are available, a Weapon Select touch button above the
+Arm button lets you switch between Missiles and Super Missiles while holding Arm.
+Toggle mode and physical controller controls keep their existing behavior.
+
+All 1.5.5.11 features remain, including improved Standard touch timing, the
+Large/Minimal Dual Screen HUD, shared-folder save synchronization, Mining Facility
+artwork, the controller splash, refreshed icons and installation failure reports.
+Dual Screen gameplay and menu controls are unchanged from the public 1.5.5.11 release.
 
 ## What you need
 
@@ -35,7 +40,7 @@ game icons and labels, and adds installation failure reports to the autopatcher.
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Download **AM2R-Autopatcher-1.5.5.11.apk** from the
+2. Download **AM2R-Autopatcher-1.5.5.11-hotfix1.apk** from the
    [release page](https://github.com/am2r-android/AM2R-Autopatcher-Android/releases)
    and install it. Allow installation
    from your browser or file manager when Android asks.
@@ -91,8 +96,8 @@ menus; it does not use the Standard edition's on-screen gameplay controls.
 
 Both games retain their released package IDs and signing certificate. Android
 labels are **AM2R: Return of Samus** and **AM2R: Return of Samus DS**.
-Game version code is 1005006; Android version names are `1.5.5 arm64` and
-`1.5.5 arm64 DS`. The patcher release version remains **1.5.5.11**.
+Game version code is 1005007; Android version names are `1.5.5 arm64` and
+`1.5.5 arm64 DS`. The patcher release version remains **1.5.5.11-hotfix1**.
 
 Game-category declarations are included for frontends. Cocoon documents manual
 artwork and description editing, but automatic import of our metadata is not
@@ -145,10 +150,10 @@ signed build. A complete playable game APK is not included in this package.
 
 The release includes:
 
-- `AM2R-Autopatcher-1.5.5.11.apk`
-- `AM2R-Autopatcher-1.5.5.11-source.zip`
-- `AM2R-1.5.5.11-standard-source.zip`
-- `AM2R-1.5.5.11-dual-source.zip`
+- `AM2R-Autopatcher-1.5.5.11-hotfix1.apk`
+- `AM2R-Autopatcher-1.5.5.11-hotfix1-source.zip`
+- `AM2R-1.5.5.11-hotfix1-standard-source.zip`
+- `AM2R-1.5.5.11-hotfix1-dual-source.zip`
 - `SHA256SUMS`
 
 Download them into the same folder. On Linux, run:
