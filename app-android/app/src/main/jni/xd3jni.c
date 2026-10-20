@@ -1,7 +1,7 @@
 /* JNI wrapper around xdelta3's whole-buffer decoder.
  *
- * The patch data's droid.xdelta is produced with `xdelta3 -e -9 -S djw`,
- * so the DJW secondary decompressor must be compiled in.
+ * Accept standard VCDIFF and older DJW-compressed patch data. Keep the DJW
+ * secondary decompressor available for those existing bundles.
  */
 #include <jni.h>
 #include <stdio.h>

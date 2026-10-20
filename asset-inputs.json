@@ -4,8 +4,13 @@
   "files": [
     {
       "path": "README.md",
-      "size": 11498,
-      "sha256": "2d069bc703c00552d80f44cd0900418147763bdb47971f23c1249230c2a77683"
+      "size": 11551,
+      "sha256": "da5e6319a5b7a73110d390d0894b7198501c3bd473a953ade096fcbd51493bac"
+    },
+    {
+      "path": "RELEASE-NOTES.txt",
+      "size": 2446,
+      "sha256": "c4dd4cfbe7eb0d424b35090640bcc1c81428e4479197e5b0f92d0c264065a629"
     },
     {
       "path": "app-android/app/src/main/res/drawable-nodpi/bg_samus.png",
@@ -84,33 +89,33 @@
     },
     {
       "path": "patch-bundle/dual/assembly.json",
-      "size": 795,
-      "sha256": "58904badea21321dfcd95e4983f70e406bdaab48f9a0923e64d3d90f38b289d4"
+      "size": 787,
+      "sha256": "0c92ca21f365cbf550737d78bcad964c0820d1a010eb871f0821c01c5979ad09"
     },
     {
       "path": "patch-bundle/dual/droid.xdelta",
-      "size": 27779324,
-      "sha256": "53573275f81808ee1b0aed96172642830efdc9d1d1c2421a63ab899922f330d8"
+      "size": 33495782,
+      "sha256": "13cd5634596260a8329220622a3a16cfb8c3fb2375f682a4dd5522291ea5becd"
     },
     {
       "path": "patch-bundle/dual/wrapper.bin",
-      "size": 262612290,
-      "sha256": "52b65dc34aeadc5fed0d59cf6ebd11113f48076ab0bbb92506e5a9e15608a6a9"
+      "size": 288832306,
+      "sha256": "2333c1a574ac3385cc328265e1348a28de56c2a190f3c11ffc80920922733619"
     },
     {
       "path": "patch-bundle/standard/assembly.json",
-      "size": 792,
-      "sha256": "b35381dc5d75919c46c201e22c63b1748a50f4af8b2cd97a9f71edf078f9bd81"
+      "size": 784,
+      "sha256": "d75f644cd186d30656a571831cb2af2923bf19b76aa8f8cb49df89f087e4a9f1"
     },
     {
       "path": "patch-bundle/standard/droid.xdelta",
-      "size": 26757682,
-      "sha256": "ea9d89d534b636ae74523847e559d7318ddc6a5e9c911e33259754f6131384b3"
+      "size": 26678392,
+      "sha256": "35c9837898506e752f7b7106951e227b02340fc2e72b02d2c30eb3f043aef1dc"
     },
     {
       "path": "patch-bundle/standard/wrapper.bin",
-      "size": 262610754,
-      "sha256": "99a33c65fab36f2046e544d3bd5c43f6d85b41c92db498cbb736ed1c61170c18"
+      "size": 288115122,
+      "sha256": "a3cc2d6a0a4feb6588343f390bcbf3513b6d3ae0a0ea15cc215c7d9fe0ed50df"
     },
     {
       "path": "vendor/xdelta3/windows-x64/xdelta3.exe",

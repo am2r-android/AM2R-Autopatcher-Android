@@ -1,22 +1,52 @@
-AM2R Autopatcher 1.5.5.11 — Hotfix 1
+AM2R Android — 1.5.5.12
+
+New UI and performance improvements on lower-end hardware.
+
+Both editions
+- Improved frame pacing, exploration and rendering efficiency to reduce slowdown
+  and map-cell stutter while preserving the artwork and gameplay.
+- Faster texture loading when returning to the game.
+- Title scrolling follows the music timing on slower hardware.
 
 Standard Edition
-- Fixed touch controls being unable to select Super Missiles with weapon style
-  set to Hold. A Weapon Select button appears above Arm when both missile types
-  are available. Hold Arm and tap Weapon Select to switch missile types.
-- Toggle mode, physical controller controls and the earlier touch-timing
-  improvement keep their existing behavior.
+- Smooth Touch Control Scale and Control Spacing sliders, with automatic
+  camera-cutout clearance.
+- Landscape, Portrait and Automatic orientation options. Surface Duo users
+  should keep the game in an unspanned app window on the intended panel.
+- Retains the Hold-mode touch fix for selecting Super Missiles.
 
 Dual Screen Edition
-- Retains the final public 1.5.5.11 gameplay, HUD and menu behavior.
+- Redesigned lower HUD with blue energy bars, clearer ammunition and Metroid
+  counters, and compact controller hints.
+- New HUD made by Carlo "AbyssalCreature": https://www.artstation.com/abyssalcreature
+- Uncollected ammunition panels stay hidden until the upgrade is acquired.
+- Consistent map and menu buttons with either HUD Screen Position. The separate
+  HUD Style option is removed.
+- Corrected long area titles, Genetics Laboratory naming and GF Research Site
+  artwork. The Tower exterior title follows its area scan; Waterfalls now has
+  its title across the area.
+- Preserves audio when leaving and returning to the game.
+
+Tested devices
+AYN Thor, AYANEO Pocket DS, Retroid Pocket Duo and Retroid Pocket Duo Lite are
+tested and working, including community feedback. RG DS still awaits physical
+validation.
+
+Compatibility
+Some Cocoon setups may reduce performance because the launcher continues running
+behind the lower display, particularly at low clock settings. This release keeps
+the display behavior that restored audio on the Retroid Pocket Duo Lite.
+The lower display may still take a moment to resume at low clocks.
+Compatibility with 16 KB-page devices still needs physical validation; see README.md.
 
 Updating
-Repatch your original AM2R 1.1 Windows ZIP and install over your existing edition.
-Package IDs and signing are unchanged; game saves and settings are retained.
-Do not uninstall the game first. Both game packages use version code 1005007;
-the Autopatcher uses version code 11. All other 1.5.5.11 features remain included.
+Repatch your original AM2R 1.1 Windows ZIP and install over the existing edition.
+Package IDs and signing are unchanged. Do not uninstall the game first; updating
+keeps its saves and settings. Backing up first is recommended. Both game packages
+use version code 1005009; the Autopatcher uses version code 13.
+Updating the Autopatcher alone does not update an already installed game.
 
 Downloads
-The Autopatcher APK, three media-pruned source archives and SHA256SUMS are
-included. Complete playable game APKs are not distributed. Source licenses and
-build limitations remain documented in each archive.
+Includes the Autopatcher APK, three source archives and SHA256SUMS. Complete
+playable game APKs are not distributed. Source licenses and build requirements
+remain documented in each archive.

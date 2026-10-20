@@ -3,7 +3,7 @@ AM2R game metadata and artwork
 The shared game.json supplies both editions' Android identity. Keep the released
 package names and release signing certificate: replacing either prevents an
 ordinary update from retaining the same installed application's private saves.
-The game version code is 1005007 for this release, above the previous 1005006.
+The game version code is 1005009 for this release, above the previous preview code 1005008.
 The patcher application's own package and version are separate.
 
 Artwork files retain the supplied originals. The hero is 1920x1200 (16:10);

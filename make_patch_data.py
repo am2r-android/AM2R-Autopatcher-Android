@@ -139,11 +139,11 @@ def main(apk_path, ref_path, out_dir):
     # Order removed payloads by their physical positions so the wrapper preserves all bytes between them.
     cuts.sort(key=lambda c: c[0])
 
-    # Emit droid.xdelta
+    # Emit standard VCDIFF without an additional entropy-compression layer.
     droid_tmp = out_dir / ".game.droid.tmp"
     droid_tmp.write_bytes(droid_bytes)
     xdelta_path = out_dir / "droid.xdelta"
-    subprocess.run(["xdelta3", "-e", "-9", "-S", "djw", "-f",
+    subprocess.run(["xdelta3", "-e", "-9", "-S", "none", "-f",
                     "-s", str(datawin), str(droid_tmp), str(xdelta_path)], check=True)
     droid_sha = sha256_bytes(droid_bytes)
     droid_tmp.unlink()
