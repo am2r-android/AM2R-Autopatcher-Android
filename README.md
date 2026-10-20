@@ -9,21 +9,28 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.11-hotfix1.** AYN Thor has been tested on physical hardware and confirmed working.
-The RG DS, Retroid Pocket Duo / Duo Lite and AYANEO Pocket DS profiles are
-included, but physical compatibility remains unconfirmed. When reporting an
-issue, include the device, Android version, profile and steps to reproduce it.
-Photos or a short video of both displays are useful.
+**1.5.5.12 — New UI and performance improvements on lower-end hardware.**
 
-**Hotfix 1 fixes weapon selection with Standard touch controls in Hold mode.**
-Once both missile types are available, a Weapon Select touch button above the
-Arm button lets you switch between Missiles and Super Missiles while holding Arm.
+Dual Screen has a redesigned lower
+HUD and consistent menu buttons with controller hints. Returning to the game
+loads textures faster, and title scrolling follows the music on slower hardware.
+
+Standard offers draggable **Touch Control Scale** and **Control Spacing** sliders
+under Control Options. The visible controls and touch targets move together;
+camera-cutout clearances remain automatic. Display Options includes
+**Orientation: Landscape / Portrait / Automatic**. Landscape is the default.
+For a Surface Duo, select the desired orientation and use Android's unspanned
+app window on the intended panel. A spanned upper/lower Surface Duo layout is
+not implemented.
+
+Hotfix 1's Hold-mode Weapon Select button remains above Arm when both missile
+types are available. Hold Arm and tap Weapon Select to switch missile types.
 Toggle mode and physical controller controls keep their existing behavior.
 
-All 1.5.5.11 features remain, including improved Standard touch timing, the
-Large/Minimal Dual Screen HUD, shared-folder save synchronization, Mining Facility
-artwork, the controller splash, refreshed icons and installation failure reports.
-Dual Screen gameplay and menu controls are unchanged from the public 1.5.5.11 release.
+Earlier features remain included: improved Standard touch timing,
+shared-folder save synchronization, Mining
+Facility artwork, the controller splash, refreshed icons and installation
+failure reports. Normal gameplay and controller mappings remain unchanged.
 
 ## What you need
 
@@ -33,16 +40,19 @@ Dual Screen gameplay and menu controls are unchanged from the public 1.5.5.11 re
 - An **ARM64 Android device running Android 10 or newer** for the autopatcher.
 - For Dual Screen, an Android handheld with two displays and built-in controls.
   Included profiles are **AYN Thor**, **RG DS**, **Retroid Pocket Duo / Duo Lite**
-  and **AYANEO Pocket DS**. AYN Thor is physically tested; the other profiles
-  await physical validation. RG DS Plus is not included.
+  and **AYANEO Pocket DS**.
+  - **AYN Thor:** tested and working.
+  - **AYANEO Pocket DS:** tested and working, confirmed through community feedback.
+  - **Retroid Pocket Duo / Duo Lite:** both tested and working through community feedback.
+    Duo Lite testing also confirmed audio remains working after switching apps.
+  - **RG DS:** profile included; physical validation is still pending.
+  RG DS Plus is not included.
 
 ## How to use
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Download **AM2R-Autopatcher-1.5.5.11-hotfix1.apk** from the
-   [release page](https://github.com/am2r-android/AM2R-Autopatcher-Android/releases)
-   and install it. Allow installation
+2. Install the **AM2R-Autopatcher-1.5.5.12.apk** from the release. Allow installation
    from your browser or file manager when Android asks.
 3. Open **AM2R Patcher** and choose **Standard** for one screen, or **Dual Screen**
    for a handheld with one of the included profiles.
@@ -60,24 +70,20 @@ Dual Screen gameplay and menu controls are unchanged from the public 1.5.5.11 re
 before updating. Uninstalling the game deletes its app-private saves. Standard and
 Dual Screen install as separate applications and have separate save storage.
 
-This package contains the Android autopatcher and separate code-only source
-archives for the autopatcher and both game editions. A standalone
-Windows patcher executable and ready-to-run desktop patch bundle are not included.
+Install the new Autopatcher and repatch your original ZIP to update either game.
+Updating the Autopatcher alone does not replace an already installed game.
 
 ## Standard and Dual Screen
 
 - **Standard** keeps gameplay and menus on one screen, with touch and controller
   support. Display scaling is automatic.
 - **Dual Screen** puts gameplay above and a live map below. **Display Options →
-  HUD Screen Position** lets you keep health and ammunition below or restore the
-  original HUD above. Choosing Top leaves the lower health/ammo strip empty; the
-  map, timer, item percentage and Metroid counts stay below. **HUD Style** offers
-  Minimal and Large when the HUD is below. Large is the default for new settings;
-  an existing style choice is kept. Energy tanks use their original blue color.
-  Large uses tall blue energy bars and separate health and ammunition rows,
-  remaining ammo counts grouped on the left, and the area title on the right.
-  Metroid counters occupy the panel above the title. Completion percentage sits at the far right of the timer strip. HUD Style
-  is disabled while HUD Screen Position is Top Screen.
+  HUD Screen Position** keeps health and ammunition below or restores the
+  original HUD above. One consistent lower-screen style is used for the map,
+  menus, timer and completion percentage. Moving health and ammunition above
+  removes their unused space below. The lower HUD uses blue energy bars,
+  yellow health digits, grouped ammunition and Metroid counters. Long area
+  names fit within their title panel.
   A single bottom toolbar shows
   map controls during play and Marker / Menu / Unpause on the paused map.
   Touch can pan and zoom the map while gameplay continues. Fit Map frames the
@@ -96,14 +102,15 @@ menus; it does not use the Standard edition's on-screen gameplay controls.
 
 Both games retain their released package IDs and signing certificate. Android
 labels are **AM2R: Return of Samus** and **AM2R: Return of Samus DS**.
-Game version code is 1005007; Android version names are `1.5.5 arm64` and
-`1.5.5 arm64 DS`. The patcher release version remains **1.5.5.11-hotfix1**.
+Both game packages use version code **1005009**; Android version names remain
+`1.5.5 arm64` and `1.5.5 arm64 DS`. The Autopatcher version is **1.5.5.12**,
+version code **13**. These codes also allow updates over the earlier private preview.
 
 Game-category declarations are included for frontends. Cocoon documents manual
 artwork and description editing, but automatic import of our metadata is not
 confirmed. The source includes a central metadata definition and export helpers.
-The pinned game runtime still has a native 16 KB alignment limitation; support
-for every 16 KB-page Android device is not guaranteed.
+Both final game APKs pass static 16 KB ZIP and ELF alignment checks. Installation
+and gameplay on 16 KB-page Android devices still need physical validation.
 
 ## Saves, backup and synchronization
 
@@ -146,51 +153,36 @@ expected build. Because reconstruction is byte-exact, the signature carries over
 every successfully patched APK for an edition is identical to that edition's
 signed build. A complete playable game APK is not included in this package.
 
-## Checksums and source
+For a native game rebuild, apply both `prepare_game_metadata.py` and
+`prepare_runtime_performance.py --runtime-copy /path/to/isolated/runtime` to the
+pinned runtime copy. Build each edition using Android ARM64 YYC. The second
+helper preserves the shared method cache; skipping it loses that optimization.
+Keep the complete local projects and media separately from source exports.
 
-The release includes:
+## Release files
 
-- `AM2R-Autopatcher-1.5.5.11-hotfix1.apk`
-- `AM2R-Autopatcher-1.5.5.11-hotfix1-source.zip`
-- `AM2R-1.5.5.11-hotfix1-standard-source.zip`
-- `AM2R-1.5.5.11-hotfix1-dual-source.zip`
+- `AM2R-Autopatcher-1.5.5.12.apk`
+- `AM2R-Autopatcher-1.5.5.12-source.zip`
+- `AM2R-1.5.5.12-standard-source.zip`
+- `AM2R-1.5.5.12-dual-source.zip`
 - `SHA256SUMS`
 
-Download them into the same folder. On Linux, run:
+Run `sha256sum -c SHA256SUMS` from the download folder to verify all four files.
+Source archives retain code, resource definitions and required license notices;
+they omit artwork, audio, fonts, compiled games, generated patch payloads and
+signing material. Rebuilding requires matching local assets and the documented
+GameMaker runtime. Complete playable game APKs are not provided.
 
-```sh
-sha256sum -c SHA256SUMS
-```
+## Known limitations
 
-Both game editions have been reconstructed byte-for-byte from the patch data
-inside this autopatcher. The checksums cover the APK, all three source archives
-and the included documentation. Individual checksum files are also provided.
+Known issue — Dual Screen launcher compatibility
 
-The autopatcher source contains its Android Java/C implementation, Python tools,
-build definitions, tests and license notices. The two game sources contain GML,
-Android extensions, shader code and GameMaker project/resource definitions.
-Their media exclusions follow the
-[Community Updates source publication](https://github.com/AM2R-Community-Developers/AM2R-Community-Updates).
+Some Cocoon setups may reduce performance because the launcher continues running
+behind the lower display, particularly at low clock settings (testing done through ClusterTune). This release keeps
+the display behavior that restored audio on the Retroid Pocket Duo Lite.
 
-Images, audio, font payloads, datafiles, compiled binaries, generated patch payloads,
-signing material and revision history are excluded from these source archives.
-Each README and asset manifest explains the additional local inputs needed to
-build. GameMaker Beta IDE 2026.100.0.1083 and runtime 2026.100.0.1046 are pinned.
-The older upstream GMX asset-import instructions are not a verified importer for
-this converted YYP project. A rebuild from only the original 1.1 ZIP remains
-unverified. Code retains its included license conditions and required attribution.
-
-## Credits & licenses
-
-- **AM2R** was created by DoctorM64 and team; **Community Updates** by the AM2R
-  Community Developers. Game content retains its original rights. This is an
-  unofficial fan project, not affiliated with or endorsed by Nintendo.
-- Distribution model and inspiration: the AM2R Community Developers'
-  [autopatcher](https://github.com/AM2R-Community-Developers/AM2R-Autopatcher-Windows).
-- The palette system adapts PixelatedPope's
-  [Retro Palette Swapper](https://github.com/PixelatedPope/RetroPaletteSwapper)
-  under its included MIT license.
-- xdelta3 by Josh MacDonald retains its Apache 2.0 license. Its notice is included
-  in the autopatcher source at `app-android/app/src/main/jni/xdelta3/LICENSE`.
-- Autopatcher code retains its MIT notice. This does not relicense inherited
-  game content or third-party components.
+The lower display can still take a moment to resume, especially at low clocks.
+Performance varies with the device, power preset and other running applications.
+Testing and community feedback do not guarantee identical performance on every
+handheld or in every room. Both game APKs pass static 16 KB alignment checks; installation and gameplay on
+16 KB-page devices still need physical validation.
