@@ -9,12 +9,14 @@ compatibility = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(compatibility)
 
 
-def elf(load_align=16384, relro_end=16384, machine=183):
-    data = bytearray(64 + 2 * 56)
+def elf(load_align=16384, relro_end=16384, machine=183, mutable_start=32768):
+    data = bytearray(64 + 4 * 56)
     data[:7] = b'\x7fELF\x02\x01\x01'
-    struct.pack_into('<HHIQQQIHHHHHH', data, 16, 3, machine, 1, 0, 64, 0, 0, 64, 56, 2, 0, 0, 0)
+    struct.pack_into('<HHIQQQIHHHHHH', data, 16, 3, machine, 1, 0, 64, 0, 0, 64, 56, 4, 0, 0, 0)
     struct.pack_into('<IIQQQQQQ', data, 64, 1, 5, 0, 0, 0, 176, 176, load_align)
-    struct.pack_into('<IIQQQQQQ', data, 120, 0x6474e552, 4, 0, 0x2000, 0, 128, relro_end - 0x2000, 1)
+    struct.pack_into('<IIQQQQQQ', data, 120, 1, 6, 0x4000, 0x4000, 0, relro_end, relro_end, load_align)
+    struct.pack_into('<IIQQQQQQ', data, 176, 1, 6, mutable_start, mutable_start, 0, 128, 128, load_align)
+    struct.pack_into('<IIQQQQQQ', data, 232, 0x6474e552, 4, 0x4000, 0x4000, 0, relro_end, relro_end, 1)
     return bytes(data)
 
 
@@ -29,6 +31,16 @@ class AlignmentChecks(unittest.TestCase):
         result = compatibility.inspect_elf(elf(relro_end=12288))
         self.assertTrue(result['loadAligned16KB'])
         self.assertFalse(result['relroAligned16KB'])
+
+    def test_relro_rounding_into_padding_is_safe(self):
+        result = compatibility.inspect_elf(elf(relro_end=12288))
+        self.assertTrue(result['relroProtectionSafe16KB'])
+        self.assertTrue(result['compatible16KB'])
+
+    def test_relro_rounding_over_mutable_data_is_rejected(self):
+        result = compatibility.inspect_elf(elf(relro_end=12288, mutable_start=28672))
+        self.assertFalse(result['relroProtectionSafe16KB'])
+        self.assertFalse(result['compatible16KB'])
 
     def test_truncated_header_is_rejected(self):
         with self.assertRaises(ValueError): compatibility.inspect_elf(elf()[:70])

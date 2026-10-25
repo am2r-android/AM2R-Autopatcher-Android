@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "README.md",
-      "size": 11551,
-      "sha256": "da5e6319a5b7a73110d390d0894b7198501c3bd473a953ade096fcbd51493bac"
+      "size": 13020,
+      "sha256": "baaabdea4b715fdcd18527d872ff2dc087eafd64d634cafa5172e9427903ff5f"
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "size": 2446,
-      "sha256": "c4dd4cfbe7eb0d424b35090640bcc1c81428e4479197e5b0f92d0c264065a629"
+      "size": 2394,
+      "sha256": "2938d76d24b9a483feb621a270d1a98292fb040dcb1d163eb99dd889cd8f0dfb"
     },
     {
       "path": "app-android/app/src/main/res/drawable-nodpi/bg_samus.png",
@@ -89,33 +89,33 @@
     },
     {
       "path": "patch-bundle/dual/assembly.json",
-      "size": 787,
-      "sha256": "0c92ca21f365cbf550737d78bcad964c0820d1a010eb871f0821c01c5979ad09"
+      "size": 797,
+      "sha256": "1524656e1d60bb1a7e7dc1b7466aaf2ce20d516db63248b605839b79c59c1fd1"
     },
     {
       "path": "patch-bundle/dual/droid.xdelta",
-      "size": 33495782,
-      "sha256": "13cd5634596260a8329220622a3a16cfb8c3fb2375f682a4dd5522291ea5becd"
+      "size": 33485005,
+      "sha256": "b80728f802e263058d72b7f8f291ce1daf9179e250a4a9be4df4a04b6b241579"
     },
     {
       "path": "patch-bundle/dual/wrapper.bin",
-      "size": 288832306,
-      "sha256": "2333c1a574ac3385cc328265e1348a28de56c2a190f3c11ffc80920922733619"
+      "size": 288962354,
+      "sha256": "9b3aa3c9315b08e585627efcd43bfff9ea600470ab2b329f2ffc3e4a8be6cf05"
     },
     {
       "path": "patch-bundle/standard/assembly.json",
-      "size": 784,
-      "sha256": "d75f644cd186d30656a571831cb2af2923bf19b76aa8f8cb49df89f087e4a9f1"
+      "size": 794,
+      "sha256": "53bc9f3997db3ee1356675ebe313e745c5f65448b99b6a6a8dfbaca2ab14e21d"
     },
     {
       "path": "patch-bundle/standard/droid.xdelta",
-      "size": 26678392,
-      "sha256": "35c9837898506e752f7b7106951e227b02340fc2e72b02d2c30eb3f043aef1dc"
+      "size": 26683044,
+      "sha256": "bbd37b7ce268f83dc36118d01ae35bc37a60ae71a171bf3438c24c29f4f0fc76"
     },
     {
       "path": "patch-bundle/standard/wrapper.bin",
-      "size": 288115122,
-      "sha256": "a3cc2d6a0a4feb6588343f390bcbf3513b6d3ae0a0ea15cc215c7d9fe0ed50df"
+      "size": 288172082,
+      "sha256": "d42b526fb47363da46f7c0a8eb619a69b109daf69378031baa92e5796944521b"
     },
     {
       "path": "vendor/xdelta3/windows-x64/xdelta3.exe",

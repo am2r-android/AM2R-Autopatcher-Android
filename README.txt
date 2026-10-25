@@ -1,4 +1,4 @@
-AM2R Autopatcher 1.5.5.12 — source
+AM2R Autopatcher 1.5.5.13-beta — source
 
 This archive contains the Android Java/C implementation, Python patcher and
 patch generator, build definitions, tests and dependency notices. The patcher

@@ -172,7 +172,9 @@ def main(apk_path, ref_path, out_dir):
             segments.append({"source": "wrapper", "offset": w_off,
                              "length": len(chunk), "sha256": sha256_bytes(chunk)})
 
-    version = apk_path.name.split("-")[1] if "-" in apk_path.name else "unknown"
+    # Keep hotfix suffixes and both editions aligned with the central release.
+    metadata = Path(__file__).resolve().parent / "game-metadata" / "game.json"
+    version = json.loads(metadata.read_text(encoding="utf-8"))["release"]
     # Store the selected APK's size and hashes alongside the ordered reconstruction plan.
     manifest = {
         "version": version,

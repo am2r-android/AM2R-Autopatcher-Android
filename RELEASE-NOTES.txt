@@ -1,52 +1,47 @@
-AM2R Android — 1.5.5.12
+AM2R Android — 1.5.5.13 Beta
 
-New UI and performance improvements on lower-end hardware.
+Nano mode and performance improvements for lower-end hardware.
 
 Both editions
-- Improved frame pacing, exploration and rendering efficiency to reduce slowdown
-  and map-cell stutter while preserving the artwork and gameplay.
-- Faster texture loading when returning to the game.
-- Title scrolling follows the music timing on slower hardware.
+- New Nano option in Display reduces decorative effects and rendering work while
+  keeping normal game speed, combat and controls. Disable it for full visuals.
+- Includes the gallery fix from 1.5.5.12 Hotfix 1 and earlier UI improvements.
 
 Standard Edition
-- Smooth Touch Control Scale and Control Spacing sliders, with automatic
-  camera-cutout clearance.
-- Landscape, Portrait and Automatic orientation options. Surface Duo users
-  should keep the game in an unspanned app window on the intended panel.
-- Retains the Hold-mode touch fix for selecting Super Missiles.
+- New Aspect Ratio setting offers 4:3, 16:9 and native 3:2 without stretching.
+  During gameplay, changes take effect at the next room transition.
 
 Dual Screen Edition
-- Redesigned lower HUD with blue energy bars, clearer ammunition and Metroid
-  counters, and compact controller hints.
-- New HUD made by Carlo "AbyssalCreature": https://www.artstation.com/abyssalcreature
-- Uncollected ammunition panels stay hidden until the upgrade is acquired.
-- Consistent map and menu buttons with either HUD Screen Position. The separate
-  HUD Style option is removed.
-- Corrected long area titles, Genetics Laboratory naming and GF Research Site
-  artwork. The Tower exterior title follows its area scan; Waterfalls now has
-  its title across the area.
-- Preserves audio when leaving and returning to the game.
-
-Tested devices
-AYN Thor, AYANEO Pocket DS, Retroid Pocket Duo and Retroid Pocket Duo Lite are
-tested and working, including community feedback. RG DS still awaits physical
-validation.
+- Swap Displays for the RG DS profile corrects reversed screen order.
+- First-time RG DS setup starts Nano enabled and lets you confirm the screen order.
+  Both settings remain adjustable; updating preserves your existing choices.
+- More efficient lower-screen map and HUD updates, including in Nano mode.
 
 Compatibility
-Some Cocoon setups may reduce performance because the launcher continues running
-behind the lower display, particularly at low clock settings. This release keeps
-the display behavior that restored audio on the Retroid Pocket Duo Lite.
-The lower display may still take a moment to resume at low clocks.
-Compatibility with 16 KB-page devices still needs physical validation; see README.md.
+RG DS community testing has used GammaOS. Nano improves performance, but demanding
+scenes can still slow down; constant 60 FPS and stock-firmware compatibility are
+not guaranteed. AYN Thor, AYANEO Pocket DS and both Retroid Pocket Duo models
+retain their existing profiles. RG DS Plus is not a separately validated profile.
+Some Cocoon setups can reduce Dual Screen performance. The lower display may
+still take a moment to resume.
 
 Updating
-Repatch your original AM2R 1.1 Windows ZIP and install over the existing edition.
-Package IDs and signing are unchanged. Do not uninstall the game first; updating
-keeps its saves and settings. Backing up first is recommended. Both game packages
-use version code 1005009; the Autopatcher uses version code 13.
-Updating the Autopatcher alone does not update an already installed game.
+Install the new Autopatcher, select your original AM2R_11.zip and rebuild the
+edition you use. Install the generated APK over your existing game. Updating
+the Autopatcher alone does not replace an already installed game.
+
+Package IDs and signing are unchanged. Back up your saves before updating and
+do not uninstall the game. Standard and Dual Screen remain separate applications.
+Both game packages use version code 1005011; the Autopatcher uses version code 15.
+The title-screen content version remains V1.5.5.
 
 Downloads
-Includes the Autopatcher APK, three source archives and SHA256SUMS. Complete
-playable game APKs are not distributed. Source licenses and build requirements
-remain documented in each archive.
+- AM2R-Autopatcher-1.5.5.13-beta.apk
+- AM2R-Autopatcher-1.5.5.13-beta-source.zip
+- AM2R-1.5.5.13-beta-standard-source.zip
+- AM2R-1.5.5.13-beta-dual-source.zip
+- SHA256SUMS
+
+The original AM2R 1.1 ZIP is required. Nothing playable is hosted here.
+Source archives retain code and resource definitions; artwork, audio, fonts,
+compiled games and generated patch payloads are omitted.

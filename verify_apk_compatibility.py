@@ -23,16 +23,32 @@ def inspect_elf(data):
     stride, count = struct.unpack_from('<HH', data, 54)
     if stride < 56 or table + stride * count > len(data):
         raise ValueError('Truncated ELF program headers')
-    loads, relro = [], []
+    loads, segments, relro = [], [], []
     for index in range(count):
         kind, flags, offset, address, _, size, memory, alignment = struct.unpack_from('<IIQQQQQQ', data, table + stride * index)
         if kind == 1:
             loads.append(alignment >= 16384 and (address - offset) % 16384 == 0)
+            segments.append((address, address + memory, flags))
         elif kind == 0x6474e552:
-            relro.append((address + memory) % 16384 == 0)
+            relro.append((address, address + memory))
+    # Android rounds RELRO protection to page boundaries. A raw end need not
+    # be aligned if the rounded range covers only RELRO bytes and padding.
+    # Reject ranges that would protect mutable data or executable bytes.
+    # https://android.googlesource.com/platform/bionic/+/android16-release/linker/linker_phdr.cpp
+    protection_safe = True
+    for start, end in relro:
+        if start > end or not any(a <= start <= end <= b and flags & 2 for a, b, flags in segments):
+            protection_safe = False
+        rounded_start, rounded_end = start // 16384 * 16384, (end + 16383) // 16384 * 16384
+        for a, b, flags in segments:
+            low, high = max(a, rounded_start), min(b, rounded_end)
+            if low >= high: continue
+            if flags & 1 or (flags & 2 and not any(x <= low <= high <= y for x, y in relro)):
+                protection_safe = False
     return {'loadAligned16KB': bool(loads) and all(loads),
-            'relroAligned16KB': all(relro),
-            'compatible16KB': bool(loads) and all(loads) and all(relro)}
+            'relroAligned16KB': all(end % 16384 == 0 for _, end in relro),
+            'relroProtectionSafe16KB': protection_safe,
+            'compatible16KB': bool(loads) and all(loads) and protection_safe}
 
 
 def check(apk, build_tools, previous=None, metadata=None):
