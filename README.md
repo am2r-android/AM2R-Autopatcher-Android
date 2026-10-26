@@ -9,7 +9,10 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.13 Beta — Nano mode and lower-end hardware improvements.**
+**1.5.5.13 Beta 2 — water crash fix.**
+
+Fixes the error when water appears on screen in Standard and Dual Screen,
+with Nano enabled or disabled.
 
 Both editions include **Display Options → Nano** for devices that need lighter
 visual effects. It reduces decorative particles, some lighting and glow effects,
@@ -18,8 +21,8 @@ restore full visuals. Other display and rendering efficiencies apply in both mod
 
 Dual Screen adds **Swap Displays** for the RG DS profile. First-time RG DS setup
 previews the screen order and starts Nano enabled. Both choices remain adjustable
-in Display Options; updates preserve saved preferences. RG DS testing so far is
-on GammaOS. Nano improves performance but does not guarantee a constant 60 FPS.
+in Display Options; updates preserve saved preferences. RG DS has been tested on stock Android,
+with additional community GammaOS testing. Nano improves performance.
 
 Includes the gallery fix from 1.5.5.12 Hotfix 1 and the earlier UI improvements.
 
@@ -68,16 +71,16 @@ failure reports. Normal gameplay and controller mappings remain unchanged.
   - **AYANEO Pocket DS:** tested and working, confirmed through community feedback.
   - **Retroid Pocket Duo / Duo Lite:** both tested and working through community feedback.
     Duo Lite testing also confirmed audio remains working after switching apps.
-  - **RG DS:** community-tested on GammaOS. Swap Displays corrects reversed
-    screen order; Nano helps performance. Demanding scenes can still slow down.
-    Stock firmware has not been validated.
+  - **RG DS:** tested on stock Android, with additional community GammaOS testing.
+    Swap Displays corrects reversed screen order; Nano helps performance.
+    Demanding scenes can still slow down.
   RG DS Plus is not included.
 
 ## How to use
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Install the **AM2R-Autopatcher-1.5.5.13-beta.apk** from the release. Allow installation
+2. Install the **AM2R-Autopatcher-1.5.5.13-beta2.apk** from the release. Allow installation
    from your browser or file manager when Android asks.
 3. Open **AM2R Patcher** and choose **Standard** for one screen, or **Dual Screen**
    for a handheld with one of the included profiles.
@@ -130,9 +133,9 @@ menus; it does not use the Standard edition's on-screen gameplay controls.
 
 Both games retain their released package IDs and signing certificate. Android
 labels are **AM2R: Return of Samus** and **AM2R: Return of Samus DS**.
-Both game packages use version code **1005011**; Android version names remain
-`1.5.5 arm64` and `1.5.5 arm64 DS`. The Autopatcher version is **1.5.5.13-beta**,
-version code **15**. The private beta applications remain separate from the release editions.
+Both game packages use version code **1005012**; Android version names remain
+`1.5.5 arm64` and `1.5.5 arm64 DS`. The Autopatcher version is **1.5.5.13-beta2**,
+version code **16**. The private beta applications remain separate from the release editions.
 
 Game-category declarations are included for frontends. Cocoon documents manual
 artwork and description editing, but automatic import of our metadata is not
@@ -189,10 +192,10 @@ Keep the complete local projects and media separately from source exports.
 
 ## Release files
 
-- `AM2R-Autopatcher-1.5.5.13-beta.apk`
-- `AM2R-Autopatcher-1.5.5.13-beta-source.zip`
-- `AM2R-1.5.5.13-beta-standard-source.zip`
-- `AM2R-1.5.5.13-beta-dual-source.zip`
+- `AM2R-Autopatcher-1.5.5.13-beta2.apk`
+- `AM2R-Autopatcher-1.5.5.13-beta2-source.zip`
+- `AM2R-1.5.5.13-beta2-standard-source.zip`
+- `AM2R-1.5.5.13-beta2-dual-source.zip`
 - `SHA256SUMS`
 
 Run `sha256sum -c SHA256SUMS` from the download folder to verify all four files.
