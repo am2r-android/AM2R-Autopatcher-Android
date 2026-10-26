@@ -1,29 +1,11 @@
-AM2R Android — 1.5.5.13 Beta
+AM2R Android — 1.5.5.13 Beta 2
 
-Nano mode and performance improvements for lower-end hardware.
+Water crash fixed in Standard and Dual Screen.
 
-Both editions
-- New Nano option in Display reduces decorative effects and rendering work while
-  keeping normal game speed, combat and controls. Disable it for full visuals.
-- Includes the gallery fix from 1.5.5.12 Hotfix 1 and earlier UI improvements.
+Fixed
+- Fixed an error when water appears on screen, with Nano enabled or disabled.
 
-Standard Edition
-- New Aspect Ratio setting offers 4:3, 16:9 and native 3:2 without stretching.
-  During gameplay, changes take effect at the next room transition.
-
-Dual Screen Edition
-- Swap Displays for the RG DS profile corrects reversed screen order.
-- First-time RG DS setup starts Nano enabled and lets you confirm the screen order.
-  Both settings remain adjustable; updating preserves your existing choices.
-- More efficient lower-screen map and HUD updates, including in Nano mode.
-
-Compatibility
-RG DS community testing has used GammaOS. Nano improves performance, but demanding
-scenes can still slow down; constant 60 FPS and stock-firmware compatibility are
-not guaranteed. AYN Thor, AYANEO Pocket DS and both Retroid Pocket Duo models
-retain their existing profiles. RG DS Plus is not a separately validated profile.
-Some Cocoon setups can reduce Dual Screen performance. The lower display may
-still take a moment to resume.
+Includes the features from 1.5.5.13 Beta.
 
 Updating
 Install the new Autopatcher, select your original AM2R_11.zip and rebuild the
@@ -32,14 +14,14 @@ the Autopatcher alone does not replace an already installed game.
 
 Package IDs and signing are unchanged. Back up your saves before updating and
 do not uninstall the game. Standard and Dual Screen remain separate applications.
-Both game packages use version code 1005011; the Autopatcher uses version code 15.
+Both game packages use version code 1005012; the Autopatcher uses version code 16.
 The title-screen content version remains V1.5.5.
 
 Downloads
-- AM2R-Autopatcher-1.5.5.13-beta.apk
-- AM2R-Autopatcher-1.5.5.13-beta-source.zip
-- AM2R-1.5.5.13-beta-standard-source.zip
-- AM2R-1.5.5.13-beta-dual-source.zip
+- AM2R-Autopatcher-1.5.5.13-beta2.apk
+- AM2R-Autopatcher-1.5.5.13-beta2-source.zip
+- AM2R-1.5.5.13-beta2-standard-source.zip
+- AM2R-1.5.5.13-beta2-dual-source.zip
 - SHA256SUMS
 
 The original AM2R 1.1 ZIP is required. Nothing playable is hosted here.

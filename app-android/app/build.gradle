@@ -13,8 +13,8 @@ android {
         applicationId "com.community.am2r.patcher"
         minSdk 29
         targetSdk 36
-        versionCode 15
-        versionName "1.5.5.13-beta"
+        versionCode 16
+        versionName "1.5.5.13-beta2"
         buildConfigField 'String', 'GAME_STANDARD_PACKAGE', groovy.json.JsonOutput.toJson(gameMetadata.editions.standard.package_name)
         buildConfigField 'String', 'GAME_DUAL_PACKAGE', groovy.json.JsonOutput.toJson(gameMetadata.editions.dual.package_name)
         manifestPlaceholders = [appLabel: 'AM2R Patcher']
