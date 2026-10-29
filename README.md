@@ -9,7 +9,7 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.13 Beta 2 — water crash fix.**
+**1.5.5.13 — Nano refinements, translations and lower-screen HUD improvements.**
 
 Fixes the error when water appears on screen in Standard and Dual Screen,
 with Nano enabled or disabled.
@@ -25,6 +25,20 @@ in Display Options; updates preserve saved preferences. RG DS has been tested on
 with additional community GammaOS testing. Nano improves performance.
 
 Includes the gallery fix from 1.5.5.12 Hotfix 1 and the earlier UI improvements.
+
+Menus and new Android settings now share the English layout across the existing
+language selection, using the original community fonts. Long help text scrolls
+inside its fixed strip. Dual Screen HUD actions, area titles and controller
+hints follow the selected language; timer punctuation and the completion symbol
+keep their original style. The Spanish selector is labeled Español.
+
+Nano now limits decorative bubbles from broken pipes, pauses distant crabs and
+keeps the darkest Industrial Complex breeding-ground rooms visible. Nearby
+combat stays active. Shared burrowing-enemy and reactor-escape fixes reduce
+unnecessary work in both modes. Mining Facility breeding grounds now use their
+discovered-area title and background. Compact lower-screen layouts keep the two
+Metroid counters together and place the energy bars beside health.
+
 
 Both editions improve frame pacing, exploration and rendering efficiency while
 preserving the game's artwork and gameplay. Dual Screen has a redesigned lower
@@ -80,7 +94,7 @@ failure reports. Normal gameplay and controller mappings remain unchanged.
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Install the **AM2R-Autopatcher-1.5.5.13-beta2.apk** from the release. Allow installation
+2. Install the **AM2R-Autopatcher-1.5.5.13.apk** from the release. Allow installation
    from your browser or file manager when Android asks.
 3. Open **AM2R Patcher** and choose **Standard** for one screen, or **Dual Screen**
    for a handheld with one of the included profiles.
@@ -131,11 +145,15 @@ screen to 4:3. Retroid Pocket Duo and Duo Lite share a profile. Dual Screen uses
 the handheld's controller for Samus and the lower touch interface for the map and
 menus; it does not use the Standard edition's on-screen gameplay controls.
 
+Fresh profiles begin with completion-gated modes and extras locked. Earned
+progress and restored unlock records are kept. The existing secret unlock
+sequence remains available.
+
 Both games retain their released package IDs and signing certificate. Android
 labels are **AM2R: Return of Samus** and **AM2R: Return of Samus DS**.
-Both game packages use version code **1005012**; Android version names remain
-`1.5.5 arm64` and `1.5.5 arm64 DS`. The Autopatcher version is **1.5.5.13-beta2**,
-version code **16**. The private beta applications remain separate from the release editions.
+Both game packages use version code **1005013**; Android version names remain
+`1.5.5 arm64` and `1.5.5 arm64 DS`. The Autopatcher version is **1.5.5.13**,
+version code **17**. Private preview applications remain separate from the release editions.
 
 Game-category declarations are included for frontends. Cocoon documents manual
 artwork and description editing, but automatic import of our metadata is not
@@ -192,17 +210,18 @@ Keep the complete local projects and media separately from source exports.
 
 ## Release files
 
-- `AM2R-Autopatcher-1.5.5.13-beta2.apk`
-- `AM2R-Autopatcher-1.5.5.13-beta2-source.zip`
-- `AM2R-1.5.5.13-beta2-standard-source.zip`
-- `AM2R-1.5.5.13-beta2-dual-source.zip`
+- `AM2R-Autopatcher-1.5.5.13.apk`
+- `AM2R-Autopatcher-1.5.5.13-source.zip`
+- `AM2R-1.5.5.13-standard-source.zip`
+- `AM2R-1.5.5.13-dual-source.zip`
 - `SHA256SUMS`
 
 Run `sha256sum -c SHA256SUMS` from the download folder to verify all four files.
 Source archives retain code, resource definitions and required license notices;
 they omit artwork, audio, fonts, compiled games, generated patch payloads and
-signing material. Rebuilding requires matching local assets and the documented
-GameMaker runtime. Complete playable game APKs are not provided.
+signing material. Restore the game project assets with the matching separate AM2R Project Assets
+developer tool and your original 1.1 ZIP. GameMaker and its documented runtime
+must be installed separately. Complete playable game APKs are not provided.
 
 ## Known limitations
 
