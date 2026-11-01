@@ -9,7 +9,19 @@ The port is based on **AM2R Community Updates 1.5.5** and runs natively on ARM64
 Android. The autopatcher creates the game APK. **Once installed, the game launches
 independently and does not require the autopatcher to remain installed.**
 
-**1.5.5.13 — Nano refinements, translations and lower-screen HUD improvements.**
+**1.5.5.14 — Touch-control adjustment and Retroid Dual Screen Add-on support.**
+
+Standard adds a **Diagonal Aim Size** slider under Control Options. Increase it
+for larger diagonal aim arrows and a smaller joystick inside the same control
+area. Overall scale and spacing remain independent, and touch targets follow the
+visible controls. The controls menu now scrolls far enough to show **Done**.
+
+For **Retroid Pocket Nova with the Retroid Dual Screen Add-on**, choose the
+**Retroid Pocket Duo / Duo Lite** profile and enable **Dual Screen Add-on** in
+Display Options. Gameplay fills the external 16:9 panel while the map and menus
+stay on the handheld. The setting defaults off for ordinary Duo/Duo Lite devices;
+the RG DS screen-order option remains separate. Nova add-on operation is confirmed
+through community testing.
 
 Fixes the error when water appears on screen in Standard and Dual Screen,
 with Nano enabled or disabled.
@@ -40,7 +52,7 @@ discovered-area title and background. Compact lower-screen layouts keep the two
 Metroid counters together and place the energy bars beside health.
 
 
-Both editions improve frame pacing, exploration and rendering efficiency while
+Both editions retain improved frame pacing, exploration and rendering efficiency while
 preserving the game's artwork and gameplay. Dual Screen has a redesigned lower
 HUD and consistent menu buttons with controller hints. Returning to the game
 loads textures faster, and title scrolling follows the music on slower hardware.
@@ -78,7 +90,8 @@ failure reports. Normal gameplay and controller mappings remain unchanged.
   freeware release). A Community Updates or modded copy will **not** work — the
   autopatcher checks the exact original `data.win`.
 - An **ARM64 Android device running Android 10 or newer** for the autopatcher.
-- For Dual Screen, an Android handheld with two displays and built-in controls.
+- For Dual Screen, a supported Android handheld with two displays and built-in
+  controls, or Retroid Pocket Nova with the Retroid Dual Screen Add-on.
   Included profiles are **AYN Thor**, **RG DS**, **Retroid Pocket Duo / Duo Lite**
   and **AYANEO Pocket DS**.
   - **AYN Thor:** tested and working.
@@ -88,16 +101,18 @@ failure reports. Normal gameplay and controller mappings remain unchanged.
   - **RG DS:** tested on stock Android, with additional community GammaOS testing.
     Swap Displays corrects reversed screen order; Nano helps performance.
     Demanding scenes can still slow down.
+  - **Retroid Pocket Nova + Retroid Dual Screen Add-on:** tested and working
+    through community feedback. Use the Retroid profile with Dual Screen Add-on enabled.
   RG DS Plus is not included.
 
 ## How to use
 
 1. Put your `AM2R_11.zip` somewhere on the device that Android's file picker can
    reach, such as Downloads or an SD card.
-2. Install the **AM2R-Autopatcher-1.5.5.13.apk** from the release. Allow installation
+2. Install the **AM2R-Autopatcher-1.5.5.14.apk** from the release. Allow installation
    from your browser or file manager when Android asks.
 3. Open **AM2R Patcher** and choose **Standard** for one screen, or **Dual Screen**
-   for a handheld with one of the included profiles.
+   for a handheld or supported add-on with one of the included profiles.
 4. Select your original `AM2R_11.zip` and wait for patching to finish. The verified
    game APK is saved in **Downloads**. Your original ZIP stays unchanged.
 5. Tap **Install Standard** or **Install Dual Screen** to open Android's installer.
@@ -151,9 +166,9 @@ sequence remains available.
 
 Both games retain their released package IDs and signing certificate. Android
 labels are **AM2R: Return of Samus** and **AM2R: Return of Samus DS**.
-Both game packages use version code **1005013**; Android version names remain
-`1.5.5 arm64` and `1.5.5 arm64 DS`. The Autopatcher version is **1.5.5.13**,
-version code **17**. Private preview applications remain separate from the release editions.
+Both game packages use version code **1005014**; Android version names are
+`1.5.5.14` and `1.5.5.14 DS`. The Autopatcher version is **1.5.5.14**,
+version code **18**. Private preview applications remain separate from the release editions.
 
 Game-category declarations are included for frontends. Cocoon documents manual
 artwork and description editing, but automatic import of our metadata is not
@@ -210,10 +225,10 @@ Keep the complete local projects and media separately from source exports.
 
 ## Release files
 
-- `AM2R-Autopatcher-1.5.5.13.apk`
-- `AM2R-Autopatcher-1.5.5.13-source.zip`
-- `AM2R-1.5.5.13-standard-source.zip`
-- `AM2R-1.5.5.13-dual-source.zip`
+- `AM2R-Autopatcher-1.5.5.14.apk`
+- `AM2R-Autopatcher-1.5.5.14-source.zip`
+- `AM2R-1.5.5.14-standard-source.zip`
+- `AM2R-1.5.5.14-dual-source.zip`
 - `SHA256SUMS`
 
 Run `sha256sum -c SHA256SUMS` from the download folder to verify all four files.

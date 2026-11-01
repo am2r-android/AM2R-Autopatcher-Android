@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "README.md",
-      "size": 14182,
-      "sha256": "fb7a0a2f5519b45c16be8c9c2ff648e89c2c60bd9b6734262d7e3efd8543eef7"
+      "size": 15182,
+      "sha256": "fe7aa07f018af5f571a81cc6cfe8ac201c518da64164f50c893c1995e4c67f44"
     },
     {
       "path": "RELEASE-NOTES.txt",
-      "size": 2607,
-      "sha256": "50726e69abae7652da64089c7e9de63db9c55a97f8c4e3bf514bd1efa312cbc2"
+      "size": 2015,
+      "sha256": "3acbd4c3d2279e10d12e830feb4acf04e125e4897ebdef28fe6dcfb40c3a9faf"
     },
     {
       "path": "app-android/app/src/main/res/drawable-nodpi/bg_samus.png",
@@ -90,32 +90,32 @@
     {
       "path": "patch-bundle/dual/assembly.json",
       "size": 787,
-      "sha256": "6f88fc322ee3bff601e11f2762b0153a7142445f3df675ec6d6f3aa93b977d82"
+      "sha256": "89203d658b9e781f5db8149280b6923107b6c245a29b1379853f72879cb02639"
     },
     {
       "path": "patch-bundle/dual/droid.xdelta",
-      "size": 33123255,
-      "sha256": "7d3fe856cd1585e3ec1466d5966ac0530bf18788a5b4e144e797d1ffe96c8b31"
+      "size": 33122832,
+      "sha256": "2c71901b19a636d8446cd51a04ec06f36ae6700b30924ece81d3285459742541"
     },
     {
       "path": "patch-bundle/dual/wrapper.bin",
-      "size": 289156979,
-      "sha256": "9250ff18401211b3350172460113d9d22c04c9a478f8b3bfef4843a34d0021fb"
+      "size": 289177203,
+      "sha256": "f55a6cdc49112820c081e146876c5092f817b9ea6b4eb70d9664515b4b1a3621"
     },
     {
       "path": "patch-bundle/standard/assembly.json",
       "size": 784,
-      "sha256": "25fa340ee947b9aa3c3a4ddbf24186fd212445796c66adfb24fdca6e55635d63"
+      "sha256": "ebe6c4de2e482ecb62aff64dc14e0f1dc01c4b351ce506e2f3242b9daeac3d7c"
     },
     {
       "path": "patch-bundle/standard/droid.xdelta",
-      "size": 33091922,
-      "sha256": "fadf03164f25e702df19c948b05282a6c7bfb13cbd26521efe840ed0c92e37ea"
+      "size": 33091941,
+      "sha256": "dfedcbf5420b097f9395e55ab4ba67673d5f3b7f4b1fe7f95d2402bf4a121c3a"
     },
     {
       "path": "patch-bundle/standard/wrapper.bin",
-      "size": 288320627,
-      "sha256": "223388411e2859576b33d2fd71cbd54dc1b70e1ca96484722dd01b77ed11d5a1"
+      "size": 288316531,
+      "sha256": "89f3dd150f1c14a0cee70c21ec8ca927aaa2c21d94cb0960192bdd478ba30de0"
     },
     {
       "path": "vendor/xdelta3/windows-x64/xdelta3.exe",

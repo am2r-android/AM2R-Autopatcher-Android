@@ -1,49 +1,41 @@
-AM2R Android — 1.5.5.13
+AM2R Android — 1.5.5.14 (Full Release)
 
-Nano refinements, translations and lower-screen HUD improvements.
-
-Both editions
-- Translated the new Android settings and repaired menu layouts across the
-  existing language selection, using the original community fonts. (new android and dual screen features were added using a translator)
-- Long help text stays within the original menu strip and scrolls when needed.
-- Nano reduces decorative pipe bubbles and pauses distant crabs; nearby combat
-  remains active. The darkest Industrial Complex breeding grounds stay visible.
-- Reduced unnecessary work around burrowing enemies and the reactor escape.
-- Includes the water crash fix and the gallery fixes from earlier updates.
-- Corrected the post-reactor Energy Tank map marker; affected saves repair it
-  when re-entering the room.
-- Extra modes start locked on fresh profiles again. Earned progress and the
-  existing secret unlock code are preserved.
+Touch-control adjustment and Retroid Dual Screen Add-on support.
 
 Standard Edition
-- Native 3:2 joins 4:3 and 16:9 without stretching the artwork.
-- Retains touch-control spacing/scale sliders and orientation options.
+- New Diagonal Aim Size slider adjusts diagonal aim arrows and the joystick
+  within the same control area. Overall control scale and spacing stay separate.
+- Touch targets follow the visible controls, and the controls menu now scrolls
+  far enough to show Done.
 
 Dual Screen Edition
-- Localized lower-screen actions and area titles, with corrected fonts, timer
-  punctuation, controller hints and compact 4:3 HUD spacing.
-- Mining Facility breeding grounds now show their discovered title and artwork.
-- Retains RG DS screen-order setup and Nano enabled on first-time RG DS setup.
-  Existing preferences are preserved when updating.
+- New Dual Screen Add-on option in the Retroid Pocket Duo / Duo Lite profile.
+  Enable it for Retroid Pocket Nova with the Retroid Dual Screen Add-on: gameplay
+  uses the external 16:9 panel, with the map and menus on the handheld.
+- Gameplay fits the external panel correctly when the two displays have different
+  aspect ratios. Nova add-on operation is confirmed through community testing.
+- The option defaults off for ordinary Duo/Duo Lite setups. RG DS keeps its
+  separate screen-order setting, and existing preferences are preserved.
+
+Includes the fixes, translations and Nano improvements from 1.5.5.13.
 
 Updating
 Install the new Autopatcher, select your original AM2R_11.zip and rebuild the
 edition you use. Install the generated APK over your existing game. Updating
-the Autopatcher alone does not replace an already installed game.
-
+only the Autopatcher does not update an already installed game.
 Package IDs and signing are unchanged. Back up your saves before updating and
 do not uninstall the game. Standard and Dual Screen remain separate applications.
-Both game packages use version code 1005013; the Autopatcher uses version code 17.
+Both game packages use version code 1005014; the Autopatcher uses version code 18.
 The title-screen content version remains V1.5.5.
 
 Downloads
-- AM2R-Autopatcher-1.5.5.13.apk
-- AM2R-Autopatcher-1.5.5.13-source.zip
-- AM2R-1.5.5.13-standard-source.zip
-- AM2R-1.5.5.13-dual-source.zip
+- AM2R-Autopatcher-1.5.5.14.apk
+- AM2R-Autopatcher-1.5.5.14-source.zip
+- AM2R-1.5.5.14-standard-source.zip
+- AM2R-1.5.5.14-dual-source.zip
 - SHA256SUMS
 
 The original AM2R 1.1 ZIP is required. Nothing playable is hosted here.
 Source archives retain code and resource definitions; artwork, audio, fonts,
 compiled games and generated patch payloads are omitted. The separate developer
-restoration tool uses your original 1.1 ZIP to restore the matching game projects.
+restoration kit restores the matching .14 projects from your original 1.1 ZIP.
